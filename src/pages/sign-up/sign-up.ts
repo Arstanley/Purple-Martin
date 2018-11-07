@@ -31,7 +31,7 @@ export class SignUpPage {
   password: any
   email: string
   address: string
-  newsletter: string
+  newsletter: boolean
   isSigningup: boolean
   myForm: FormGroup
 
