@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Forms and Activities</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1>
+    Your Recent Activities: 
+  </h1>
+<div align = 'center'>
+    <button ion-item (click)="openScoutArrivalPage()">
+      Scout Arrival Study
+    </button>
+    <button ion-item (click)="oepnMartinWatchPage()">
+      Project MartinWatch
+    </button>
+    <button ion-item (click)="openPage(eventsPage)">
+      Project RoostWatch
+    </button>
+    <button ion-item (click)="openPage(eventsPage)">
+      Settings
+    </button>
+    <button ion-item (click)="logOut()">
+      Log Out
+    </button>
+  </div>
+</ion-content>
+
+<ion-menu id = 'homeMenu' [content]="content">
+  <ion-header>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openHomePage()">
+        Home
+      </button>
+      <button ion-item (click)="openScoutArrivalPage()">
+        Scout Arrival Study
+      </button>
+      <button ion-item (click)="openPage(friendsPage)">
+        Project MartinWatch
+      </button>
+      <button ion-item (click)="openPage(eventsPage)">
+        Project RoostWatch
+      </button>
+      <button ion-item (click)="openPage(eventsPage)">
+        Settings
+      </button>
+      <button ion-item (click)="logOut()">
+        Log Out
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="Page"></ion-nav>
+
+

@@ -1,0 +1,72 @@
+<!--
+  Generated template for the VisitorHomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>About us</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <img src="https://www.purplemartin.org/uploads/media/whoweare-272.jpg">
+
+  <header padding>
+<h1>
+  Purple Martin Conservation Association
+</h1>
+
+<p>
+    Founded in the 1987 by James R. Hill, III, the Purple Martin Conservation Association (PMCA) is the world leader in research, education and conservation of Purple Martins, North America’s largest swallow.
+</p>
+</header>
+
+<header padding>
+    <h1>
+      Our Mission
+    </h1>
+    
+    <p>
+        The PMCA is an international tax exempt, nonprofit organization dedicated to the conservation of the Purple Martin (Progne subis) through scientific research, state of the art wildlife management techniques and public education.
+
+The PMCA serves as a centralized data-gathering and information source on the species, serving both the scientist and Purple Martin enthusiast.  Our mission is educating martin enthusiasts in the proper techniques for managing this human-dependent species. 
+
+We are the leaders in developing quality martin products and we provide support for members to learn best practices to establish and maintain martin colonies.
+
+As a nonprofit organization we depend on our members, donors, and citizen-scientists to further our work for the benefit of Purple Martins.  Please join us to help secure the future for Purple Martins.
+
+The Purple Martin Conservation Association is tax-exempt under section 501 (c) (3) of the Internal Revenue Code. 
+    </p>
+    </header>
+    
+    <ion-menu id='visitorMenu' [content]="content" persistent ='true'>
+        <ion-header>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <button ion-item (click)="openHomePage()">
+              Home
+            </button>
+            <button ion-item (click)="openPicturePage()">
+              Pictures
+            </button>
+            <button ion-item (click)="openLoginPage()">
+              Log in
+            </button>
+            <button ion-item (click)="openPage(eventsPage)">
+              Settings
+            </button>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+
+    </ion-content>
+
+    <ion-nav id="nav" #content [root]="VisitorHomePage"></ion-nav>
