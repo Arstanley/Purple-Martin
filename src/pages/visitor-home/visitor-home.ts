@@ -23,8 +23,7 @@ export class VisitorHomePage {
   }
 
   openHomePage(){
-    this.navCtrl.push(VisitorHomePage)
-    this.menuCtrl.close()
+    this.navCtrl.setRoot(HomeTabsPage)
   }
 
   ionViewDidLoad() {

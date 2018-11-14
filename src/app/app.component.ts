@@ -15,13 +15,15 @@ import {VisitorHomePage} from '../pages/visitor-home/visitor-home'
 import {PicturePage} from '../pages/picture/picture'
 import {HomeTabsPage} from '../pages/home-tabs/home-tabs'
 import {MartinWatchPage} from '../pages/martin-watch/martin-watch'
-
+import { MenuPage } from '../pages/menu/menu';
+import {NewMartinWatchPage } from '../pages/new-martin-watch/new-martin-watch'
+import {MartinwatchdataPage} from '../pages/martinwatchdata/martinwatchdata'
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any = MenuPage;
 
   constructor(public menu: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -15,6 +15,9 @@ import {VisitorHomePage} from '../pages/visitor-home/visitor-home'
 import {PicturePage} from '../pages/picture/picture'
 import {HomeTabsPage} from '../pages/home-tabs/home-tabs'
 import { MartinWatchPage } from '../pages/martin-watch/martin-watch';
+import { MenuPage } from '../pages/menu/menu';
+import { NewMartinWatchPage } from '../pages/new-martin-watch/new-martin-watch';
+import { MartinwatchdataPage } from '../pages/martinwatchdata/martinwatchdata';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { MartinWatchPage } from '../pages/martin-watch/martin-watch';
     VisitorHomePage,
     PicturePage,
     HomeTabsPage,
-    MartinWatchPage
+    MartinWatchPage,
+    MenuPage,
+    NewMartinWatchPage,
+    MartinwatchdataPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,10 @@ import { MartinWatchPage } from '../pages/martin-watch/martin-watch';
     VisitorHomePage,
     PicturePage,
     HomeTabsPage,
-    MartinWatchPage
+    MartinWatchPage,
+    MenuPage,
+    NewMartinWatchPage,
+    MartinwatchdataPage
   ],
   providers: [
     StatusBar,
