@@ -18,6 +18,8 @@ import {MartinWatchPage} from '../pages/martin-watch/martin-watch'
 import { MenuPage } from '../pages/menu/menu';
 import {NewMartinWatchPage } from '../pages/new-martin-watch/new-martin-watch'
 import {MartinwatchdataPage} from '../pages/martinwatchdata/martinwatchdata'
+import {MartinwatchhelppagePage} from '../pages/martinwatchhelppage/martinwatchhelppage'
+
 @Component({
   templateUrl: 'app.html'
 })

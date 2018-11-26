@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import Parse from 'parse'
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MartinwatchhelppagePage } from '../martinwatchhelppage/martinwatchhelppage';
+import { query } from '@angular/core/src/render3/instructions';
+import { isUndefined } from 'ionic-angular/umd/util/util';
 
 /**
  * Generated class for the MartinwatchdataPage page.
@@ -15,12 +19,40 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MartinwatchdataPage {
   selectedWatch: any;
+  date: any;
+  actions: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.selectedWatch = navParams.get('watch');
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
   }
-
+  
+  submit(){
+    const Watch = Parse.Object.extend("MartinWatch");
+    const query = new Parse.Query(Watch);
+    query.get(this.selectedWatch.ID)
+    .then((watch)=>{
+      var data = Array(watch.get('data'));
+      data = data[0];
+      if(watch.get('data') == undefined){
+        data = [];
+        data.push([this.date, this.actions])
+      } else {
+        data.push([this.date, this.actions])
+      }
+      watch.set("data", data);
+      watch.save();
+      alert("Success");
+    }, error=>{
+      alert("Failed to retrieve object:" + error.message)
+    })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MartinwatchdataPage');
   }
 
+  help(){
+    this.navCtrl.push(MartinwatchhelppagePage)
+  }
 }

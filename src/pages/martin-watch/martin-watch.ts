@@ -18,7 +18,7 @@ import { MartinwatchdataPage } from '../martinwatchdata/martinwatchdata';
   templateUrl: 'martin-watch.html',
 })
 export class MartinWatchPage {
-  watches: Array<{housingtype: string, maleAge: string, femaleAge: string, updatedAt: string}>;
+  watches: Array<{ID: string, housingtype: string, maleAge: string, femaleAge: string, updatedAt: string}>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.parse();
@@ -40,6 +40,7 @@ export class MartinWatchPage {
       var year = d.getFullYear();
       this.watches.push(
         {
+          ID: object.id,
           housingtype: object.get("Housing_Type"),
           maleAge: object.get("Male_Age"),
           femaleAge: object.get("Female_Age"),
