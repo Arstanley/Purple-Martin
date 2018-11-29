@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {ScoutLandlordPage} from '../scout-landlord/scout-landlord'
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {Parse} from 'parse'
@@ -13,7 +13,6 @@ import {ArrivalNotePage} from '../arrival-note/arrival-note'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-scout-arrival',
   templateUrl: 'scout-arrival.html',

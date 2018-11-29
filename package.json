@@ -35,7 +35,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "ionic-angular": "3.9.2",
+    "ionic-angular": "^3.9.2",
     "ionicons": "3.0.0",
     "parse": "^2.1.0",
     "rxjs": "5.5.11",
@@ -60,8 +60,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-ionic": {
         "APP_ID": "56cbb60e",
-        "CHANNEL_NAME": "PRODUCTION",
-        "UPDATE_METHOD": "background|auto|none",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background",
         "MAX_STORE": "3",
         "UPDATE_API": "https://api.ionicjs.com",
         "MIN_BACKGROUND_DURATION": "30"
