@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import Parse from 'parse'
 import { ToastController } from 'ionic-angular';
 import {HomePage} from '../home/home'
@@ -13,7 +13,6 @@ import { HomeTabsPage } from '../home-tabs/home-tabs';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',

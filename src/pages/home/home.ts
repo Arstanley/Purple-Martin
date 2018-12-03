@@ -3,7 +3,6 @@ import { NavController, Nav, MenuController } from 'ionic-angular';
 import Parse from 'parse'
 import { ToastController } from 'ionic-angular';
 import {LoginPage} from '../login/login'
-import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { ScoutArrivalPage } from '../scout-arrival/scout-arrival';
 import { HomeTabsPage } from '../home-tabs/home-tabs';
 import { MartinWatchPage } from '../martin-watch/martin-watch';

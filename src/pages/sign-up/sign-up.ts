@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import Parse from 'parse'
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { LoginPage } from '../login/login';
@@ -11,7 +11,6 @@ import {confirmPasswordValidator} from '../../app/validators/confirmPassword'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-sign-up',
   templateUrl: 'sign-up.html',
