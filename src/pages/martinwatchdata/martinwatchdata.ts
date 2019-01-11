@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MartinwatchhelppagePage } from '../martinwatchhelppage/martinwatchhelppage';
 import { query } from '@angular/core/src/render3/instructions';
 import { isUndefined } from 'ionic-angular/umd/util/util';
+import { MartinDataHistoryPage } from '../martin-data-history/martin-data-history';
 
 /**
  * Generated class for the MartinwatchdataPage page.
@@ -50,6 +51,12 @@ export class MartinwatchdataPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MartinwatchdataPage');
+  }
+
+  history(event){
+    this.navCtrl.push(MartinDataHistoryPage, {
+      watch: this.selectedWatch
+    })
   }
 
   help(){

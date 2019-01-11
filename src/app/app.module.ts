@@ -19,6 +19,7 @@ import { MenuPage } from '../pages/menu/menu';
 import { NewMartinWatchPage } from '../pages/new-martin-watch/new-martin-watch';
 import { MartinwatchdataPage } from '../pages/martinwatchdata/martinwatchdata';
 import { MartinwatchhelppagePage } from '../pages/martinwatchhelppage/martinwatchhelppage';
+import { MartinDataHistoryPage } from '../pages/martin-data-history/martin-data-history';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MartinwatchhelppagePage } from '../pages/martinwatchhelppage/martinwatc
     MenuPage,
     NewMartinWatchPage,
     MartinwatchdataPage,
-    MartinwatchhelppagePage
+    MartinwatchhelppagePage,
+    MartinDataHistoryPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import { MartinwatchhelppagePage } from '../pages/martinwatchhelppage/martinwatc
     MenuPage,
     NewMartinWatchPage,
     MartinwatchdataPage,
-    MartinwatchhelppagePage
+    MartinwatchhelppagePage,
+    MartinDataHistoryPage
   ],
   providers: [
     StatusBar,

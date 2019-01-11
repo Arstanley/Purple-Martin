@@ -36,7 +36,7 @@ export class MartinWatchPage {
       var object = results[i];
       var d = new Date(object.updatedAt)
       var date = d.getDate();
-      var month = d.getMonth();
+      var month = d.getMonth() + 1;
       var year = d.getFullYear();
       this.watches.push(
         {

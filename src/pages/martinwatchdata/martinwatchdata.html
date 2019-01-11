@@ -23,10 +23,14 @@
         <ion-label floating> Actions </ion-label>
       <ion-input [(ngModel)]="actions"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label floating> Email Verification</ion-label>
+    <ion-input [(ngModel)]="email"></ion-input>
+  </ion-item>
   </ion-list>
 
   <div text-center margin-top>
-      <button ion-button color="secondary" (click)="history()">
+      <button ion-button color="secondary" (click)="history($event)">
         HISTORY
       </button>
   </div>
