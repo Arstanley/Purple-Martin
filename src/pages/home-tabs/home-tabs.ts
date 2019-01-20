@@ -26,13 +26,13 @@ export class HomeTabsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeTabsPage');
   }
-  enableVisitorMenu() {
-    this.menuCtrl.enable(true, 'visitorMenu');
-    this.menuCtrl.enable(false, 'homeMenu');
-  }
-  enableHomeMenu() {
-    this.menuCtrl.enable(false, 'visitorMenu');
-    this.menuCtrl.enable(true, 'homeMenu');
-  }
+  // enableVisitorMenu() {
+  //   this.menuCtrl.enable(true, 'visitorMenu');
+  //   this.menuCtrl.enable(false, 'homeMenu');
+  // }
+  // enableHomeMenu() {
+  //   this.menuCtrl.enable(false, 'visitorMenu');
+  //   this.menuCtrl.enable(true, 'homeMenu');
+  // }
 
 }
