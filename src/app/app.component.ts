@@ -26,7 +26,7 @@ import {MartinDataHistoryPage} from '../pages/martin-data-history/martin-data-hi
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = MenuPage;
+  rootPage: any = HomeTabsPage;
 
   constructor(public menu: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -38,10 +38,6 @@ export class MyApp {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs","OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh")
     Parse.serveURL = 'https://parseapi.back4app.com/';
     
-  }
-
-  openScoutArrivalPage(){
-    this.nav.setRoot(ScoutArrivalPage)
   }
 }
 

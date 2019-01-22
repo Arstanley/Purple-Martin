@@ -12,7 +12,6 @@ import { MartinWatchPage } from '../martin-watch/martin-watch';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  @ViewChild(Nav) nav2: Nav;
   pages: Array<{title: string, component: any}>;
   HomeTabsPage = HomeTabsPage
   constructor(
@@ -53,7 +52,7 @@ export class HomePage {
   }
 
   openHomePage(){
-    this.navCtrl.push(HomePage),
+    this.navCtrl.push(HomeTabsPage),
     this.menu.close;
 
   }

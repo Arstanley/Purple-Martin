@@ -24,9 +24,4 @@ export class MenuPage {
     console.log('ionViewDidLoad MenuPage');
   }
 
-  enableVisitorMenu() {
-    this.menuCtrl.enable(true, 'visitorMenu');
-    this.menuCtrl.enable(false, 'homeMenu');
-  }
-
 }

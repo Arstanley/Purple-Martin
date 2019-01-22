@@ -46,18 +46,19 @@ The Purple Martin Conservation Association is tax-exempt under section 501 (c) (
     </p>
     </header>
     
-    <ion-menu id='visitorMenu' [content]="content" persistent ='true'>
-        <ion-header>
-        </ion-header>
+    <ion-menu [content]="content">
         <ion-content>
           <ion-list>
             <button ion-item (click)="openHomePage()">
               Home
             </button>
+            <button ion-item (click)="openScoutArrivalPage()">
+              Purple Martin Wiki
+            </button>
             <button ion-item (click)="openPicturePage()">
               Pictures
             </button>
-            <button ion-item (click)="openLoginPage()">
+            <button ion-item (click)="openPage(eventsPage)">
               Log in
             </button>
             <button ion-item (click)="openPage(eventsPage)">
@@ -69,4 +70,4 @@ The Purple Martin Conservation Association is tax-exempt under section 501 (c) (
 
     </ion-content>
 
-    <ion-nav id="nav" #content [root]="Page"></ion-nav>
+    <ion-nav id="nav" #content [root]="VisitorHomePage"></ion-nav>

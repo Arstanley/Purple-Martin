@@ -28,36 +28,6 @@
       </ion-list>
     </ion-content>
   </ion-menu>
-
-  <ion-menu id = 'homeMenu' [content]="content">
-      <ion-header>
-          <ion-toolbar>
-              <ion-title>Menu</ion-title>
-            </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-          <button ion-item (click)="openHomePage()">
-            Home
-          </button>
-          <button ion-item (click)="openScoutArrivalPage()">
-            Scout Arrival Study
-          </button>
-          <button ion-item (click)="openPage(friendsPage)">
-            Project MartinWatch
-          </button>
-          <button ion-item (click)="openPage(eventsPage)">
-            Project RoostWatch
-          </button>
-          <button ion-item (click)="openPage(eventsPage)">
-            Settings
-          </button>
-          <button ion-item (click)="logOut()">
-            Log Out
-          </button>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
    
   <!-- main navigation -->
   <ion-nav [root]="rootPage"></ion-nav>
