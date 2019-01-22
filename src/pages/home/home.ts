@@ -7,6 +7,7 @@ import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { ScoutArrivalPage } from '../scout-arrival/scout-arrival';
 import { HomeTabsPage } from '../home-tabs/home-tabs';
 import { MartinWatchPage } from '../martin-watch/martin-watch';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -54,7 +55,6 @@ export class HomePage {
   openHomePage(){
     this.navCtrl.push(HomeTabsPage),
     this.menu.close;
-
   }
 
 }

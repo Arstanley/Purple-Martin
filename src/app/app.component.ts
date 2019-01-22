@@ -26,7 +26,7 @@ import {MartinDataHistoryPage} from '../pages/martin-data-history/martin-data-hi
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = HomeTabsPage;
+  rootPage: any = MenuPage;
 
   constructor(public menu: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { PicturePage } from '../picture/picture'
 import { LoginPage } from '../login/login'
 import { HomeTabsPage } from '../home-tabs/home-tabs';
@@ -11,15 +11,13 @@ import { HomeTabsPage } from '../home-tabs/home-tabs';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-visitor-home',
   templateUrl: 'visitor-home.html',
 })
 export class VisitorHomePage {
-  HomeTabsPage = HomeTabsPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
-    this.menuCtrl.enable(true, 'visitorMenu')
+    
   }
 
   openHomePage(){
