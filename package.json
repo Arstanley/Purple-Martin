@@ -52,7 +52,12 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "56cbb60e",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "auto"
+      }
     },
     "platforms": [
       "ios"
