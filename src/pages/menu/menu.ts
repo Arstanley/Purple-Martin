@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { HomeTabsPage } from '../home-tabs/home-tabs';
 import { LoginPage } from '../login/login';
 import { PicturePage } from '../picture/picture';
+import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopmentpage';
 
 /**
  * Generated class for the MenuPage page.
@@ -31,6 +32,9 @@ export class MenuPage {
     this.menuCtrl.close();
   }
 
+  openDevelopment() {
+    this.navCtrl.push(UnderdevelopmentpagePage)
+  }
 
   openPicturePage(){
     this.navCtrl.push(PicturePage)

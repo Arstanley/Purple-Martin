@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 import { NewMartinWatchPage } from '../new-martin-watch/new-martin-watch';
 import Parse from 'parse'
 import DateFormat from 'parse'
 import SimpleDateFormat from 'parse'
 import { MartinwatchdataPage } from '../martinwatchdata/martinwatchdata';
+import {Storage} from '@ionic/storage'
 /**
  * Generated class for the MartinWatchPage page.
  *
@@ -18,10 +19,14 @@ import { MartinwatchdataPage } from '../martinwatchdata/martinwatchdata';
   templateUrl: 'martin-watch.html',
 })
 export class MartinWatchPage {
+  email: string;
   watches: Array<{ID: string, housingtype: string, maleAge: string, femaleAge: string, updatedAt: string}>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.parse();
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, alrtCtrl: AlertController) {
+    storage.get('email').then((val)=>{
+      this.email = val;
+      this.parse()
+    })
   }
 
   async parse(){
@@ -30,6 +35,7 @@ export class MartinWatchPage {
     const Watch = Parse.Object.extend("MartinWatch");
     const query = new Parse.Query(Watch);
     query.exists("Housing_Type")
+    query.equalTo("userid", this.email)
     const results = await query.find();
     this.watches = []
     for (let i = 0; i < results.length; i++){

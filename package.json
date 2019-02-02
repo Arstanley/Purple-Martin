@@ -24,7 +24,7 @@
     "@ionic-native/splash-screen": "~4.12.0",
     "@ionic-native/status-bar": "~4.12.0",
     "@ionic/pro": "2.0.3",
-    "@ionic/storage": "2.1.3",
+    "@ionic/storage": "^2.1.3",
     "cordova-ios": "^4.5.5",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-ionic": "^5.2.10",
@@ -33,6 +33,7 @@
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
+    "cordova-sqlite-storage": "2.6.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "parse": "^2.1.0",
@@ -58,7 +59,8 @@
         "APP_ID": "56cbb60e",
         "CHANNEL_NAME": "Production",
         "UPDATE_METHOD": "auto"
-      }
+      },
+      "cordova-sqlite-storage": {}
     },
     "platforms": [
       "ios"

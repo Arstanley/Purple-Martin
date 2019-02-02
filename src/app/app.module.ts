@@ -20,6 +20,8 @@ import { NewMartinWatchPage } from '../pages/new-martin-watch/new-martin-watch';
 import { MartinwatchdataPage } from '../pages/martinwatchdata/martinwatchdata';
 import { MartinwatchhelppagePage } from '../pages/martinwatchhelppage/martinwatchhelppage';
 import { MartinDataHistoryPage } from '../pages/martin-data-history/martin-data-history';
+import {IonicStorageModule} from '@ionic/storage'
+import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdevelopmentpage';
 
 @NgModule({
   declarations: [
@@ -38,11 +40,13 @@ import { MartinDataHistoryPage } from '../pages/martin-data-history/martin-data-
     NewMartinWatchPage,
     MartinwatchdataPage,
     MartinwatchhelppagePage,
-    MartinDataHistoryPage
+    MartinDataHistoryPage,
+    UnderdevelopmentpagePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,7 +65,8 @@ import { MartinDataHistoryPage } from '../pages/martin-data-history/martin-data-
     NewMartinWatchPage,
     MartinwatchdataPage,
     MartinwatchhelppagePage,
-    MartinDataHistoryPage
+    MartinDataHistoryPage,
+    UnderdevelopmentpagePage
   ],
   providers: [
     StatusBar,
