@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, Nav, MenuController, AlertController } from 'ionic-angular';
 import Parse from 'parse'
 import { ToastController } from 'ionic-angular';
-import {LoginPage} from '../login/login'
 import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { ScoutArrivalPage } from '../scout-arrival/scout-arrival';
 import { HomeTabsPage } from '../home-tabs/home-tabs';
@@ -60,14 +59,7 @@ export class HomePage {
           ]
         }).present()
       } else {
-        this.storage.get('email').then((val) => {
-          this.alertCtrl.create({
-            title: 'message',
-            message: 'Your email address is: ' + val  
-          }).present()
-        }
-
-        )
+        this.navCtrl.push(ScoutArrivalPage)
       }
     })
     
@@ -102,11 +94,7 @@ export class HomePage {
           ]
         }).present()
       } else {
-        this.storage.get('email').then((val) => {
-          this.navCtrl.push(MartinWatchPage);
-        }
-
-        )
+        this.navCtrl.push(MartinWatchPage)
       }
     })
   }

@@ -5,8 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import Parse from 'parse';
 import { MenuController, Nav } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { SignUpPage } from '../pages/sign-up/sign-up'
 import {ScoutArrivalPage} from '../pages/scout-arrival/scout-arrival'
 import {ScoutLandlordPage} from '../pages/scout-landlord/scout-landlord'
 import {LandlordhelpPage} from '../pages/landlordhelp/landlordhelp'

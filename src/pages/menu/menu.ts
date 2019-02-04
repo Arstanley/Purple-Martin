@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HomeTabsPage } from '../home-tabs/home-tabs';
-import { LoginPage } from '../login/login';
 import { PicturePage } from '../picture/picture';
 import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopmentpage';
 
@@ -25,11 +24,6 @@ export class MenuPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
-  }
-
-  openLoginPage() {
-    this.navCtrl.setRoot(LoginPage)
-    this.menuCtrl.close();
   }
 
   openDevelopment() {

@@ -6,8 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import {LoginPage} from '../pages/login/login';
-import {SignUpPage} from '../pages/sign-up/sign-up'
 import {ScoutArrivalPage} from '../pages/scout-arrival/scout-arrival'
 import {LandlordhelpPage} from '../pages/landlordhelp/landlordhelp'
 import {ArrivalNotePage} from '../pages/arrival-note/arrival-note'
@@ -27,8 +25,6 @@ import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdev
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
-    SignUpPage,
     ScoutArrivalPage,
     LandlordhelpPage,
     ArrivalNotePage,
@@ -52,8 +48,6 @@ import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdev
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
-    SignUpPage,
     ScoutArrivalPage,
     LandlordhelpPage,
     ArrivalNotePage,
