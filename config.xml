@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>pupleMartin</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <name>Purple Martin</name>
+    <description>An application to help collect data for the Purple Martin Conservation Association</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -82,11 +82,12 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <engine name="ios" spec="^4.5.5" />
     <plugin name="cordova-plugin-ionic" spec="^5.2.10">
         <variable name="APP_ID" value="56cbb60e" />
         <variable name="CHANNEL_NAME" value="Master" />
         <variable name="UPDATE_METHOD" value="auto" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="2.6.0" />
+    <engine name="android" />
+    <engine name="ios" spec="^4.5.5" />
 </widget>
