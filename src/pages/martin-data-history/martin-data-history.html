@@ -1,0 +1,26 @@
+<!--
+  Generated template for the MartinDataHistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MartinDataHistory</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let entry of entries" (click)="detai($event, watch)">
+      <font size="2">Date: {{entry.date}}</font><br>
+      <font size="2">Data: {{entry.data}}</font>
+      <!-- <div class="item-note" item-right>
+        {{watch.updatedAt}}
+      </div> -->
+    </button>
+  </ion-list>
+</ion-content>

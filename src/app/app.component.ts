@@ -5,8 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import Parse from 'parse';
 import { MenuController, Nav } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { SignUpPage } from '../pages/sign-up/sign-up'
 import {ScoutArrivalPage} from '../pages/scout-arrival/scout-arrival'
 import {ScoutLandlordPage} from '../pages/scout-landlord/scout-landlord'
 import {LandlordhelpPage} from '../pages/landlordhelp/landlordhelp'
@@ -15,13 +13,19 @@ import {VisitorHomePage} from '../pages/visitor-home/visitor-home'
 import {PicturePage} from '../pages/picture/picture'
 import {HomeTabsPage} from '../pages/home-tabs/home-tabs'
 import {MartinWatchPage} from '../pages/martin-watch/martin-watch'
+import { MenuPage } from '../pages/menu/menu';
+import {NewMartinWatchPage } from '../pages/new-martin-watch/new-martin-watch'
+import {MartinwatchdataPage} from '../pages/martinwatchdata/martinwatchdata'
+import {MartinwatchhelppagePage} from '../pages/martinwatchhelppage/martinwatchhelppage'
+import {MartinDataHistoryPage} from '../pages/martin-data-history/martin-data-history'
+import {UnderdevelopmentpagePage} from '../pages/underdevelopmentpage/underdevelopmentpage'
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any = MenuPage;
 
   constructor(public menu: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -33,10 +37,6 @@ export class MyApp {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs","OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh")
     Parse.serveURL = 'https://parseapi.back4app.com/';
     
-  }
-
-  openScoutArrivalPage(){
-    this.nav.setRoot(ScoutArrivalPage)
   }
 }
 

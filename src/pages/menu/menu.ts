@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HomeTabsPage } from '../home-tabs/home-tabs';
+import { PicturePage } from '../picture/picture';
+import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopmentpage';
 
 /**
  * Generated class for the MenuPage page.
@@ -24,9 +26,12 @@ export class MenuPage {
     console.log('ionViewDidLoad MenuPage');
   }
 
-  enableVisitorMenu() {
-    this.menuCtrl.enable(true, 'visitorMenu');
-    this.menuCtrl.enable(false, 'homeMenu');
+  openDevelopment() {
+    this.navCtrl.push(UnderdevelopmentpagePage)
   }
 
+  openPicturePage(){
+    this.navCtrl.push(PicturePage)
+    this.menuCtrl.close()
+  }
 }

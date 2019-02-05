@@ -8,36 +8,28 @@
 
   <ion-navbar>
     <ion-title>MartinWatch</ion-title>
+    <ion-buttons end icon-only>
+        <button (click) = "addField()">
+          <ion-icon name = "add"></ion-icon>
+
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list>
-        <button ion-item (click)="openHomePage()">
-          Housing type: WH <br>
-          <p>Last Update: Yesterday</p>
+    <ion-list>
+        <button ion-item *ngFor="let watch of watches" (click)="selected($event, watch)">
+          <font size="3">Housing Type: {{watch.housingtype}}</font><br>
+          <font color="grey" size = "2" style="font-family:'serif'">Male Age: {{watch.maleAge}}<br>
+          Female Age: {{watch.femaleAge}}<br>
+          Last update: {{watch.updatedAt}}<br>
+          ID: {{watch.ID}}</font>
+          <!-- <div class="item-note" item-right>
+            {{watch.updatedAt}}
+          </div> -->
         </button>
-        <button ion-item (click)="openScoutArrivalPage()">
-            Housing type: PH
-            <p>Last Update: 10/25</p>
-        </button>
-        <button ion-item (click)="openPage(friendsPage)">
-            Housing type: AG
-            <p>Last Update: 10/23</p>
-        </button>
-        <button ion-item (click)="openPage(eventsPage)">
-            Housing type: NG
-            <p>Last Update: 10/20</p>
-        </button>
-        <button ion-item (click)="openPage(eventsPage)">
-            Housing type: WH
-            <p>Last Update: 10/3</p>
-        </button>
-        <button ion-item (click)="logOut()">
-            Housing type: MH
-            <p>Last Update: 9/25</p>
-        </button>
-  </ion-list>
+      </ion-list>
 </ion-content>

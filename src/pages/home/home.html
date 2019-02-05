@@ -1,9 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Forms</ion-title>
+  <ion-navbar >
+    <ion-title>Forms and Activities</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,20 +9,24 @@
   <h1>
     Available Projects 
   </h1>
-<div align = 'center'>
+
+  <div align = 'center'>
     <button ion-item (click)="openScoutArrivalPage()">
       Scout Arrival Study
     </button>
     <button ion-item (click)="oepnMartinWatchPage()">
       Project MartinWatch
     </button>
-    <button ion-item (click)="openPage(eventsPage)">
+    <button ion-item (click)="openDevelopmentPage()">
       Project RoostWatch
+    </button>
+    <button ion-item (click)="openDevelopmentPage()">
+      Settings
     </button>
   </div>
 </ion-content>
 
-<ion-menu id = 'homeMenu' [content]="content">
+<!-- <ion-menu id = 'homeMenu' [content]="content">
   <ion-header>
   </ion-header>
   <ion-content>
@@ -50,8 +51,7 @@
       </button>
     </ion-list>
   </ion-content>
-</ion-menu>
+</ion-menu> -->
 
-<ion-nav id="nav" #content [root]="Page"></ion-nav>
 
 

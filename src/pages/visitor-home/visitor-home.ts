@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { PicturePage } from '../picture/picture'
-import { LoginPage } from '../login/login'
 import { HomeTabsPage } from '../home-tabs/home-tabs';
 
 /**
@@ -16,23 +15,16 @@ import { HomeTabsPage } from '../home-tabs/home-tabs';
   templateUrl: 'visitor-home.html',
 })
 export class VisitorHomePage {
-  HomeTabsPage = HomeTabsPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
-    this.menuCtrl.enable(true, 'visitorMenu')
+    
   }
 
   openHomePage(){
-    this.navCtrl.push(VisitorHomePage)
-    this.menuCtrl.close()
+    this.navCtrl.setRoot(HomeTabsPage)
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VisitorHomePage');
-  }
-
-  openLoginPage() {
-    this.navCtrl.setRoot(LoginPage)
-    this.menuCtrl.close();
   }
 
 
