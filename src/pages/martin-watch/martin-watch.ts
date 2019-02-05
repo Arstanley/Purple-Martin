@@ -13,7 +13,6 @@ import {Storage} from '@ionic/storage'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-martin-watch',
   templateUrl: 'martin-watch.html',
