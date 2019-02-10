@@ -20,6 +20,8 @@ import { MartinwatchhelppagePage } from '../pages/martinwatchhelppage/martinwatc
 import { MartinDataHistoryPage } from '../pages/martin-data-history/martin-data-history';
 import {IonicStorageModule} from '@ionic/storage'
 import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdevelopmentpage';
+import {CavityListPage} from '../pages/cavity-list/cavity-list'
+import {NewCavityPage} from '../pages/new-cavity/new-cavity'
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdev
     MartinwatchdataPage,
     MartinwatchhelppagePage,
     MartinDataHistoryPage,
-    UnderdevelopmentpagePage
+    UnderdevelopmentpagePage,
+    CavityListPage,
+    NewCavityPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdev
     MartinwatchdataPage,
     MartinwatchhelppagePage,
     MartinDataHistoryPage,
-    UnderdevelopmentpagePage
+    UnderdevelopmentpagePage,
+    CavityListPage,
+    NewCavityPage
   ],
   providers: [
     StatusBar,

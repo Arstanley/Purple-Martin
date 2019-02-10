@@ -19,6 +19,8 @@ import {MartinwatchdataPage} from '../pages/martinwatchdata/martinwatchdata'
 import {MartinwatchhelppagePage} from '../pages/martinwatchhelppage/martinwatchhelppage'
 import {MartinDataHistoryPage} from '../pages/martin-data-history/martin-data-history'
 import {UnderdevelopmentpagePage} from '../pages/underdevelopmentpage/underdevelopmentpage'
+import {CavityListPage} from '../pages/cavity-list/cavity-list'
+import {NewCavityPage} from '../pages/new-cavity/new-cavity'
 
 @Component({
   templateUrl: 'app.html'

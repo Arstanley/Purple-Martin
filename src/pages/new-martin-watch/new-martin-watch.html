@@ -7,42 +7,58 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add a new nest</ion-title>
+    <ion-title>ADD A COLONY SITE</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-
 <ion-content padding>
 <ion-list>
-    <ion-item>
-        <ion-label floating>Housing Type</ion-label>
-        <ion-select [(ngModel)]="housingtype">
-            <ion-option value="wooden house">Wooden House</ion-option>
-            <ion-option value="metal house">Metal House</ion-option>
-            <ion-option value="plastic house">Plastic House</ion-option>
-            <ion-option value="artificial gourd">Artificial Gourd</ion-option>
-            <ion-option value="natural gourd">Natural Gourd</ion-option>
-          </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label floating> Male Age </ion-label>
-      <ion-input type = "number" [(ngModel)]="maleage"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label floating> Female Age </ion-label>
-        <ion-input type = "number" [(ngModel)]="femaleage"></ion-input>
-      </ion-item>
-    
+  <ion-item>
+    <ion-label floating> Colony Name </ion-label>
+    <ion-input type = "string" [(ngModel)] = "name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Public</ion-label>
+    <ion-select [(ngModel)] = "public">
+      <ion-option value = "public"> public </ion-option>
+      <ion-option value = "private"> private </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+      <ion-label floating> Address </ion-label>
+      <ion-input type = "string" [(ngModel)] = "address"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating> City </ion-label>
+      <ion-input type = "string" [(ngModel)] = "city"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating> Region/State </ion-label>
+      <ion-input type = "string" [(ngModel)] = "state"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating> Post Code </ion-label>
+      <ion-input type = "number" [(ngModel)] = "post_code"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Country</ion-label>
+      <ion-select [(ngModel)] = "country">
+        <ion-option value = "USA"> USA </ion-option>
+        <ion-option value = "Canada"> Canada </ion-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>
+      <ion-label floating> Latitude </ion-label>
+      <ion-input type = "number" [(ngModel)] = "latitude"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating> Longitude </ion-label>
+      <ion-input type = "number" [(ngModel)] = "longitude"></ion-input>
+  </ion-item>
 </ion-list>
-<div text-center margin-top>
-    <button ion-button color = "secondary">
-      Upload Photo
-    </button>
-</div>
-<div text-center margin-top>
-    <button ion-button color = "secondary" (click) = "newWatch()">
+  <div text-center margin-top>
+    <button ion-button color = "secondary" (click) = "newColony()">
       Create
     </button>
   </div>

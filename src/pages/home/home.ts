@@ -94,6 +94,9 @@ export class HomePage {
           ]
         }).present()
       } else {
+        // this.storage.get('email').then((val)=>{
+        //   alert(val)
+        // })
         this.navCtrl.push(MartinWatchPage)
       }
     })

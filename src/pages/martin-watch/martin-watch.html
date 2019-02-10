@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>MartinWatch</ion-title>
+    <ion-title>MartinWatch-Colonies</ion-title>
     <ion-buttons end icon-only>
         <button (click) = "addField()">
           <ion-icon name = "add"></ion-icon>
@@ -22,11 +22,11 @@
 <ion-content padding>
     <ion-list>
         <button ion-item *ngFor="let watch of watches" (click)="selected($event, watch)">
-          <font size="3">Housing Type: {{watch.housingtype}}</font><br>
-          <font color="grey" size = "2" style="font-family:'serif'">Male Age: {{watch.maleAge}}<br>
-          Female Age: {{watch.femaleAge}}<br>
+          <font size="3">Colony Name: {{watch.Name}}</font><br>
+          <font color="grey" size = "2" style="font-family:'serif'">
+          Cavaties: {{watch.num_cavaties}}<br>
           Last update: {{watch.updatedAt}}<br>
-          ID: {{watch.ID}}</font>
+          </font>
           <!-- <div class="item-note" item-right>
             {{watch.updatedAt}}
           </div> -->

@@ -6,6 +6,7 @@ import DateFormat from 'parse'
 import SimpleDateFormat from 'parse'
 import { MartinwatchdataPage } from '../martinwatchdata/martinwatchdata';
 import {Storage} from '@ionic/storage'
+import { CavityListPage } from '../cavity-list/cavity-list';
 /**
  * Generated class for the MartinWatchPage page.
  *
@@ -19,7 +20,7 @@ import {Storage} from '@ionic/storage'
 })
 export class MartinWatchPage {
   email: string;
-  watches: Array<{ID: string, housingtype: string, maleAge: string, femaleAge: string, updatedAt: string}>;
+  watches: Array<{Name: string, num_cavaties: string, updatedAt:string, ID: string}>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, alrtCtrl: AlertController) {
     storage.get('email').then((val)=>{
@@ -33,8 +34,7 @@ export class MartinWatchPage {
     Parse.serverURL = 'https://parseapi.back4app.com/';
     const Watch = Parse.Object.extend("MartinWatch");
     const query = new Parse.Query(Watch);
-    query.exists("Housing_Type")
-    query.equalTo("userid", this.email)
+    query.equalTo("userid", this.email);
     const results = await query.find();
     this.watches = []
     for (let i = 0; i < results.length; i++){
@@ -43,13 +43,13 @@ export class MartinWatchPage {
       var date = d.getDate();
       var month = d.getMonth() + 1;
       var year = d.getFullYear();
+
       this.watches.push(
         {
-          ID: object.id,
-          housingtype: object.get("Housing_Type"),
-          maleAge: object.get("Male_Age"),
-          femaleAge: object.get("Female_Age"),
-          updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString()
+          Name: object.get("Name"),
+          num_cavaties: object.get("num_cavaties"),
+          updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString(),
+          ID: object.id
         }
       );
       }
@@ -65,8 +65,16 @@ export class MartinWatchPage {
   }
 
   selected(event, watch){
-    this.navCtrl.push(MartinwatchdataPage, {
-      watch: watch
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    const Watch = Parse.Object.extend("MartinWatch");
+    const query = new Parse.Query(Watch);
+    query.get(watch.ID).then((colony) => {
+      this.navCtrl.push(CavityListPage, {
+        colony: colony
+      })
+    }, (error) => {
+      alert(error + "Cannot retrieve object");
     })
   }
 }

@@ -17,23 +17,37 @@ import { MartinWatchPage } from '../martin-watch/martin-watch';
 })
 export class NewMartinWatchPage {
   
-  housingtype: any
-  maleage: number
-  femaleage: number
+  name: any
+  public: any
+  address: any
+  city: any
+  state: any
+  post_code: number
+  country: any
+  latitude: number
+  longitude: number
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
   }
 
-  newWatch(){
+  newColony(){
     this.storage.get('email').then((val)=>{
       const NewWatch = Parse.Object.extend("MartinWatch");
       const newWatch = new NewWatch();
-      newWatch.set("Housing_Type", this.housingtype);
-      newWatch.set("Male_Age", (this.maleage));
-      newWatch.set("Female_Age", this.femaleage);
-      newWatch.set("userid", val)
+      newWatch.set("Name", this.name);
+      newWatch.set("Publicity", (this.public));
+      newWatch.set("Address", this.address);
+      newWatch.set("City", this.city);
+      newWatch.set("State", this.state);
+      newWatch.set("Post_Code", this.post_code);
+      newWatch.set("Country", this.country);
+      newWatch.set("Longitude", this.longitude);
+      newWatch.set("Latitude", this.latitude);
+      newWatch.set("userid", val);
+      newWatch.set("num_pole", 0);
+      newWatch.set("num_cavaties", 0);
       newWatch.save()
       .then((watch) => {
         // Success
