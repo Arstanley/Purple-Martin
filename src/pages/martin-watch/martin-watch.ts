@@ -73,7 +73,7 @@ export class MartinWatchPage {
     const query = new Parse.Query(Watch);
     query.get(watch.ID).then((colony) => {
       this.navCtrl.push(PolePage, {
-        colony: colony
+        colony: colony,
       })
     }, (error) => {
       alert(error + "Cannot retrieve object");

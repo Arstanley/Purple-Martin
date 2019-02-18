@@ -16,10 +16,10 @@ import { query } from '@angular/core/src/animation/dsl';
   templateUrl: 'cavity-list.html',
 })
 export class CavityListPage {
-  colony: any;
-  cavities: Array<{num_pole: string, num_cavity: string, housing_type: string, opening: string, eggs: string, young: string, updatedAt:string}>;
+  pole: any;
+  cavities: Array<{Opening: string, Type: string, updatedAt:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.colony = this.navParams.get('colony');
+    this.pole = this.navParams.get('pole');
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
     this.constructData();
@@ -28,20 +28,16 @@ export class CavityListPage {
   async constructData() {
     const Cavity = Parse.Object.extend("MartinWatch_Cavities");
     const q = new Parse.Query(Cavity);
-    var MartinWatch = Parse.Object.extend('MartinWatch')
-    q.equalTo("colony", new MartinWatch({id: this.colony.id}));
+    var MartinWatch_Poles = Parse.Object.extend('MartinWatch_Poles')
+    q.equalTo("Pole", new MartinWatch_Poles({id: this.pole.id}));
     const results = await q.find();
     alert(results)
     this.cavities = [];
     if(results.length == 0) {
       this.cavities.push({
-        num_pole: "N/A",
-        num_cavity: "N/A",
-        housing_type: "N/A",
-        opening: "N/A",
-        eggs: "N/A",
-        young: "N/A",
-        updatedAt: "N/A"
+        Opening: "No Data Available; Please add a cavity.",
+        Type: "No Data Available; Please add a cavity.",
+        updatedAt: "No Data Available; Please add a cavity."
       })
     } else {
       for(let i = 0; i < results.length; i++) {
@@ -51,12 +47,8 @@ export class CavityListPage {
         var month = d.getMonth() + 1;
         var year = d.getFullYear();
         this.cavities.push({
-          num_pole: object.get("num_pole"),
-          num_cavity: object.get("num_cavity"),
-          housing_type: object.get("housing_type"),
-          opening: object.get("opening"),
-          eggs: object.get("eggs"),
-          young: object.get("young"),
+          Opening: object.get('opening'),
+          Type: object.get('housing_type'),
           updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString()
         })
       }
@@ -65,7 +57,7 @@ export class CavityListPage {
 
   addCavity() {
     this.navCtrl.push(NewCavityPage, {
-      colony: this.colony
+      pole: this.pole
     })
   }
   ionViewDidLoad() {

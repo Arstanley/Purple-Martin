@@ -14,15 +14,13 @@ import Parse from 'parse'
   templateUrl: 'new-cavity.html',
 })
 export class NewCavityPage {
-  colony: any
-  num_pole: any
-  num_cavity: any
-  housing_type: any
+  pole: any
   opening_type: any
+  housing_type: any
   notes: any
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.colony = navParams.get('colony');
+    this.pole = navParams.get('pole')
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
   }
@@ -30,9 +28,7 @@ export class NewCavityPage {
 newCavity() {
   const Cavity = Parse.Object.extend("MartinWatch_Cavities");
   const newCavity = new Cavity();
-  newCavity.set("colony", this.colony);
-  newCavity.set("num_pole", this.num_pole);
-  newCavity.set("num_cavity", this.num_cavity);
+  newCavity.set("Pole", this.pole);
   newCavity.set("housing_type", this.housing_type);
   newCavity.set("opening", this.opening_type);
   newCavity.set("eggs", 'N/A');
@@ -40,9 +36,26 @@ newCavity() {
   newCavity.set("notes", this.notes);
   newCavity.save().then(()=>{
     alert("Successfully submitted!")
+    this.upDatePole()
   }, (error)=>{
     alert("Error" + error)
   })
+}
+
+upDatePole() {
+  const Pole = Parse.Object.extend("MartinWatch_Poles");
+  const newPole = new Pole();
+  var query = new Parse.Query(Pole)
+  query.get(this.pole.id).then((pole)=>{
+    var num_cav = Number(pole.get("num_cavity")) + 1
+    pole.set("num_cavity", String(num_cav))
+    pole.save().then(()=>{
+      alert("Successfully updated Pole!")
+    }, (error) => {
+      alert("Error updating" + error)
+    })
+  }
+  )
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewCavityPage');

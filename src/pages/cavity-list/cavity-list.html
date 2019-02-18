@@ -21,13 +21,9 @@
     <ion-list>
         <button ion-item *ngFor="let cavity of cavities" (click)="selected($event, cavity)">
           <font size="2">
-            Pole#: {{cavity.num_pole}}<br>
-            Cavity# : {{cavity.num_cavity}}<br>
-            House Type: {{cavity.housing_type}}<br>
-            Opening: {{cavity.opening}} <br>
+            House Type: {{cavity.Type}}<br>
+            Opening: {{cavity.Opening}} <br>
             Last Check: {{cavity.updatedAt}}<br>
-            Eggs#: {{cavity.eggs}} <br>
-            Young#: {{cavity.young}}
           </font>
         </button>
       </ion-list>
