@@ -22,6 +22,8 @@ import {IonicStorageModule} from '@ionic/storage'
 import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdevelopmentpage';
 import {CavityListPage} from '../pages/cavity-list/cavity-list'
 import {NewCavityPage} from '../pages/new-cavity/new-cavity'
+import { NewpolePage } from '../pages/newpole/newpole';
+import { PolePage } from '../pages/pole/pole';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {NewCavityPage} from '../pages/new-cavity/new-cavity'
     MartinDataHistoryPage,
     UnderdevelopmentpagePage,
     CavityListPage,
-    NewCavityPage
+    NewCavityPage,
+    NewpolePage,
+    PolePage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ import {NewCavityPage} from '../pages/new-cavity/new-cavity'
     MartinDataHistoryPage,
     UnderdevelopmentpagePage,
     CavityListPage,
-    NewCavityPage
+    NewCavityPage,
+    NewpolePage,
+    PolePage
   ],
   providers: [
     StatusBar,

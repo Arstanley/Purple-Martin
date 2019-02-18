@@ -7,6 +7,7 @@ import SimpleDateFormat from 'parse'
 import { MartinwatchdataPage } from '../martinwatchdata/martinwatchdata';
 import {Storage} from '@ionic/storage'
 import { CavityListPage } from '../cavity-list/cavity-list';
+import { PolePage } from '../pole/pole';
 /**
  * Generated class for the MartinWatchPage page.
  *
@@ -20,7 +21,7 @@ import { CavityListPage } from '../cavity-list/cavity-list';
 })
 export class MartinWatchPage {
   email: string;
-  watches: Array<{Name: string, num_cavaties: string, updatedAt:string, ID: string}>;
+  watches: Array<{Name: string, num_cavaties: string, num_poles: string, updatedAt:string, ID: string}>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, alrtCtrl: AlertController) {
     storage.get('email').then((val)=>{
@@ -49,7 +50,8 @@ export class MartinWatchPage {
           Name: object.get("Name"),
           num_cavaties: object.get("num_cavaties"),
           updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString(),
-          ID: object.id
+          ID: object.id,
+          num_poles: object.get("num_pole")
         }
       );
       }
@@ -70,7 +72,7 @@ export class MartinWatchPage {
     const Watch = Parse.Object.extend("MartinWatch");
     const query = new Parse.Query(Watch);
     query.get(watch.ID).then((colony) => {
-      this.navCtrl.push(CavityListPage, {
+      this.navCtrl.push(PolePage, {
         colony: colony
       })
     }, (error) => {
