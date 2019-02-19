@@ -31,7 +31,6 @@ export class PolePage {
     var MartinWatch = Parse.Object.extend('MartinWatch')
     q.equalTo("colony", new MartinWatch({id: this.colony.id}));
     const results = await q.find();
-    alert(results)
     this.poles = [];
     if(results.length == 0) {
       this.poles.push({
@@ -69,6 +68,10 @@ export class PolePage {
     }, (error) => {
       alert(error + "Cannot retrieve object");
     })
+  }
+
+  ionViewWillEnter() {
+    this.constructData()
   }
 
   ionViewDidLoad() {

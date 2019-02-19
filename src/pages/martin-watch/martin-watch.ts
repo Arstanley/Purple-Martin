@@ -61,6 +61,10 @@ export class MartinWatchPage {
     console.log('ionViewDidLoad MartinWatchPage');
   }
 
+  ionViewWillEnter(){
+    this.parse()
+  }
+
   addField(){
     this.navCtrl.push(NewMartinWatchPage)
     this.parse(); 

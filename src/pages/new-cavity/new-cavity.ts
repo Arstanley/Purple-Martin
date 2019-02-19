@@ -25,40 +25,42 @@ export class NewCavityPage {
     Parse.serverURL = 'https://parseapi.back4app.com/';
   }
 
-newCavity() {
-  const Cavity = Parse.Object.extend("MartinWatch_Cavities");
-  const newCavity = new Cavity();
-  newCavity.set("Pole", this.pole);
-  newCavity.set("housing_type", this.housing_type);
-  newCavity.set("opening", this.opening_type);
-  newCavity.set("eggs", 'N/A');
-  newCavity.set("young", 'N/A');
-  newCavity.set("notes", this.notes);
-  newCavity.save().then(()=>{
-    alert("Successfully submitted!")
-    this.upDatePole()
-  }, (error)=>{
-    alert("Error" + error)
-  })
-}
-
-upDatePole() {
-  const Pole = Parse.Object.extend("MartinWatch_Poles");
-  const newPole = new Pole();
-  var query = new Parse.Query(Pole)
-  query.get(this.pole.id).then((pole)=>{
-    var num_cav = Number(pole.get("num_cavity")) + 1
-    pole.set("num_cavity", String(num_cav))
-    pole.save().then(()=>{
-      alert("Successfully updated Pole!")
-    }, (error) => {
-      alert("Error updating" + error)
+  newCavity() {
+    const Cavity = Parse.Object.extend("MartinWatch_Cavities");
+    const newCavity = new Cavity();
+    newCavity.set("Pole", this.pole);
+    newCavity.set("housing_type", this.housing_type);
+    newCavity.set("opening", this.opening_type);
+    newCavity.set("eggs", 'N/A');
+    newCavity.set("young", 'N/A');
+    newCavity.set("notes", this.notes);
+    newCavity.save().then(()=>{
+      alert("Successfully submitted!")
+      this.updatePole()
+    }, (error)=>{
+      alert("Error" + error)
     })
   }
-  )
-}
+
+  updatePole() {
+    const Pole = Parse.Object.extend("MartinWatch_Poles");
+    const newPole = new Pole();
+    var query = new Parse.Query(Pole)
+    query.get(this.pole.id).then((pole)=>{
+      var num_cav = Number(pole.get("num_cavity")) + 1
+      pole.set("num_cavity", String(num_cav))
+      pole.get("colony").set("num_cavaties", pole.get("colony").get("num_cavaties")+1)
+      pole.save().then(()=>{
+        
+      }, (error) => {
+        alert("Error updating" + error)
+      })
+    }
+    )
+  }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NewCavityPage');
+      console.log('ionViewDidLoad NewCavityPage');
   }
 
 }

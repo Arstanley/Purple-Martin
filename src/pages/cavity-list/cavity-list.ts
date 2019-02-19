@@ -31,7 +31,6 @@ export class CavityListPage {
     var MartinWatch_Poles = Parse.Object.extend('MartinWatch_Poles')
     q.equalTo("Pole", new MartinWatch_Poles({id: this.pole.id}));
     const results = await q.find();
-    alert(results)
     this.cavities = [];
     if(results.length == 0) {
       this.cavities.push({
@@ -62,6 +61,9 @@ export class CavityListPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CavityListPage');
+  }
+  ionViewWillEnter(){
+    this.constructData();
   }
 
 }

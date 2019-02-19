@@ -26,11 +26,29 @@ export class NewpolePage {
     const newPole = new Pole();
     newPole.set("colony", this.colony);
     newPole.set("name", this.name);
+    newPole.set("num_cavity", '0')
     newPole.save().then(()=>{
       alert("Successfully submitted!")
+      this.updateColony()
     }, (error)=>{
       alert("Error" + error)
     })
+  }
+
+  updateColony(){
+    const Colony = Parse.Object.extend("MartinWatch");
+    const newColony = new Colony();
+    var query = new Parse.Query(newColony)
+    query.get(this.colony.id).then((colony)=>{
+    var num_pole = colony.get("num_pole") + 1
+    colony.set("num_pole", num_pole)
+    colony.save().then(()=>{
+      
+    }, (error) => {
+      alert("Error updating" + error)
+    })
+  }
+  )
   }
 
   ionViewDidLoad() {
