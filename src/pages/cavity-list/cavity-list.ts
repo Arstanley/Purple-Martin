@@ -17,11 +17,15 @@ import { query } from '@angular/core/src/animation/dsl';
 })
 export class CavityListPage {
   pole: any;
+  pole_name: any;
+  colony_name: any;
   cavities: Array<{Opening: string, Type: string, updatedAt:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pole = this.navParams.get('pole');
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
+    this.pole_name = this.pole.get("name");
+    this.colony_name = this.pole.get("colony").get("Name");
     this.constructData();
   }
 

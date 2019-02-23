@@ -17,11 +17,13 @@ import { CavityListPage } from '../cavity-list/cavity-list';
 })
 export class PolePage {
   colony: any
+  colony_name: any
   poles: Array<{name: string, num_cavity: string, ID: string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.colony = this.navParams.get('colony')
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
+    this.colony_name = this.colony.get('Name');
     this.constructData();
   }
 
