@@ -23,6 +23,7 @@ import {CavityListPage} from '../pages/cavity-list/cavity-list'
 import {NewCavityPage} from '../pages/new-cavity/new-cavity'
 import {PolePage} from '../pages/pole/pole'
 import {NewpolePage} from '../pages/newpole/newpole'
+import {NestcheckHistoryPage} from '../pages/nestcheck-history/nestcheck-history'
 @Component({
   templateUrl: 'app.html'
 })

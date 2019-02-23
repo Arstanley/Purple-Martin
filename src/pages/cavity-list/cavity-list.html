@@ -8,18 +8,19 @@
 
   <ion-navbar>
     <ion-title>{{colony_name}}&#8594;{{pole_name}}</ion-title>
+    <ion-buttons end icon-only>
+        <button (click) = "addCavity()">
+          <ion-icon name = "add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
-  <ion-buttons end icon-only>
-      <button (click) = "addCavity()">
-        <ion-icon name = "add"></ion-icon>
-      </button>
-    </ion-buttons>
+  
 </ion-header>
 
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let cavity of cavities" (click)="selected($event, cavity)">
+        <button id = "cavitylist" ion-item *ngFor="let cavity of cavities" (click)="selected($event, cavity)">
           <font size="2">
             House Type: {{cavity.Type}}<br>
             Opening: {{cavity.Opening}} <br>

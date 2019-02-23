@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import Parse from 'parse'
 import { NewCavityPage } from '../new-cavity/new-cavity';
 import { query } from '@angular/core/src/animation/dsl';
+import { NestcheckHistoryPage } from '../nestcheck-history/nestcheck-history';
 /**
  * Generated class for the CavityListPage page.
  *
@@ -26,7 +27,7 @@ export class CavityListPage {
     Parse.serverURL = 'https://parseapi.back4app.com/';
     this.pole_name = this.pole.get("name");
     this.colony_name = this.pole.get("colony").get("Name");
-    this.constructData();
+    this.constructData()
   }
 
   async constructData() {
@@ -61,6 +62,12 @@ export class CavityListPage {
   addCavity() {
     this.navCtrl.push(NewCavityPage, {
       pole: this.pole
+    })
+  }
+
+  selected(event, cavity) {
+    this.navCtrl.push(NestcheckHistoryPage, {
+      _cavity: cavity
     })
   }
   ionViewDidLoad() {

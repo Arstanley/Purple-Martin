@@ -1,0 +1,34 @@
+<!--
+  Generated template for the NestcheckHistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cavity {{cav_number}} Report History</ion-title>
+    <ion-buttons end icon-only>
+        <button (click) = "addCheck()">
+          <ion-icon name = "add"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <button ion-item *ngFor="let check of checks" (click)="selected($event, check)" id="checklist">
+          <font size="2.5">Date: {{check.date}} <br>  
+            Cavity Number: {{cav_number}}&nbsp;&nbsp;&nbsp;Species: {{check.species}}</font><br>
+          <font color="grey" size = "2" style="font-family:'serif'">
+          # of Youngs: {{check.young}} &nbsp;&nbsp;&nbsp;# of Eggs: {{check.egg}}<br>
+          </font>
+          <!-- <div class="item-note" item-right>
+            {{watch.updatedAt}}
+          </div> -->
+        </button>
+  </ion-list>
+</ion-content>
