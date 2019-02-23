@@ -4,6 +4,7 @@ import Parse from 'parse'
 import { NewCavityPage } from '../new-cavity/new-cavity';
 import { query } from '@angular/core/src/animation/dsl';
 import { NestcheckHistoryPage } from '../nestcheck-history/nestcheck-history';
+import { NullTemplateVisitor } from '@angular/compiler';
 /**
  * Generated class for the CavityListPage page.
  *
@@ -20,7 +21,8 @@ export class CavityListPage {
   pole: any;
   pole_name: any;
   colony_name: any;
-  cavities: Array<{Opening: string, Type: string, updatedAt:string}>;
+  cav_num: any;
+  cavities: Array<{Opening: string, Type: string, updatedAt:string, order: number, ID: string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pole = this.navParams.get('pole');
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
@@ -41,7 +43,9 @@ export class CavityListPage {
       this.cavities.push({
         Opening: "No Data Available; Please add a cavity.",
         Type: "No Data Available; Please add a cavity.",
-        updatedAt: "No Data Available; Please add a cavity."
+        updatedAt: "No Data Available; Please add a cavity.",
+        order: 0,
+        ID: null
       })
     } else {
       for(let i = 0; i < results.length; i++) {
@@ -53,7 +57,9 @@ export class CavityListPage {
         this.cavities.push({
           Opening: object.get('opening'),
           Type: object.get('housing_type'),
-          updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString()
+          updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString(),
+          order: i + 1,
+          ID: object.id
         })
       }
     }
@@ -66,8 +72,18 @@ export class CavityListPage {
   }
 
   selected(event, cavity) {
-    this.navCtrl.push(NestcheckHistoryPage, {
-      _cavity: cavity
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    const Cavity = Parse.Object.extend('MartinWatch_Cavities');
+    const query = new Parse.Query(Cavity);
+    alert(query)
+    query.get(cavity.ID).then((cav) => {
+      this.navCtrl.push(NestcheckHistoryPage, {
+        _cavity: cav,
+        cav_num: cavity.order
+      })
+    }, (error) => {
+      alert(error + "Cannot retrieve object");
     })
   }
   ionViewDidLoad() {

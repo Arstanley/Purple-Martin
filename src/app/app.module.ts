@@ -25,6 +25,7 @@ import {NewCavityPage} from '../pages/new-cavity/new-cavity'
 import { NewpolePage } from '../pages/newpole/newpole';
 import { PolePage } from '../pages/pole/pole';
 import { NestcheckHistoryPage } from '../pages/nestcheck-history/nestcheck-history';
+import { NewNestCheckPage } from '../pages/new-nest-check/new-nest-check';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NestcheckHistoryPage } from '../pages/nestcheck-history/nestcheck-histo
     NewCavityPage,
     NewpolePage,
     PolePage,
-    NestcheckHistoryPage
+    NestcheckHistoryPage,
+    NewNestCheckPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ import { NestcheckHistoryPage } from '../pages/nestcheck-history/nestcheck-histo
     NewCavityPage,
     NewpolePage,
     PolePage,
-    NestcheckHistoryPage
+    NestcheckHistoryPage,
+    NewNestCheckPage
   ],
   providers: [
     StatusBar,
