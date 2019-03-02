@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Alert, LoadingController } from 'ionic-angular';
 import { NewMartinWatchPage } from '../new-martin-watch/new-martin-watch';
 import Parse from 'parse'
 import DateFormat from 'parse'
@@ -23,13 +23,21 @@ export class MartinWatchPage {
   email: string;
   watches: Array<{Name: string, num_cavaties: string, num_poles: string, updatedAt:string, ID: string}>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, alrtCtrl: AlertController) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, alrtCtrl: AlertController) {
     storage.get('email').then((val)=>{
       this.email = val;
-      this.parse()
+      this.load()
     })
   }
-
+  async load() {
+    const loading = this.loadingCtrl.create({
+      spinner: "dots",
+    })
+    loading.present()
+    await this.parse()
+    loading.dismiss()
+  }
+  
   async parse(){
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
