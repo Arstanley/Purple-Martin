@@ -18,7 +18,7 @@ export class NewCavityPage {
   opening_type: any
   housing_type: any
   notes: any
-
+  name: any
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pole = navParams.get('pole')
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
@@ -33,6 +33,7 @@ export class NewCavityPage {
     newCavity.set("opening", this.opening_type);
     newCavity.set("eggs", 'N/A');
     newCavity.set("young", 'N/A');
+    newCavity.set("name", this.name);
     newCavity.set("notes", this.notes);
     newCavity.save().then(()=>{
       alert("Successfully submitted!")

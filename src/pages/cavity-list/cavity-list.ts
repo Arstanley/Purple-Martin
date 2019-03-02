@@ -5,6 +5,7 @@ import { NewCavityPage } from '../new-cavity/new-cavity';
 import { query } from '@angular/core/src/animation/dsl';
 import { NestcheckHistoryPage } from '../nestcheck-history/nestcheck-history';
 import { NullTemplateVisitor } from '@angular/compiler';
+import { EditCavityPage } from '../edit-cavity/edit-cavity';
 /**
  * Generated class for the CavityListPage page.
  *
@@ -22,7 +23,7 @@ export class CavityListPage {
   pole_name: any;
   colony_name: any;
   cav_num: any;
-  cavities: Array<{Opening: string, Type: string, updatedAt:string, order: number, ID: string}>;
+  cavities: Array<{Name: string, Opening: string, Type: string, updatedAt:string, order: number, ID: string}>;
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.pole = this.navParams.get('pole');
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
@@ -51,6 +52,7 @@ export class CavityListPage {
     this.cavities = [];
     if(results.length == 0) {
       this.cavities.push({
+        Name: "No Data Available; Please add a cavity",
         Opening: "No Data Available; Please add a cavity.",
         Type: "No Data Available; Please add a cavity.",
         updatedAt: "No Data Available; Please add a cavity.",
@@ -65,6 +67,7 @@ export class CavityListPage {
         var month = d.getMonth() + 1;
         var year = d.getFullYear();
         this.cavities.push({
+          Name: object.get('name'),
           Opening: object.get('opening'),
           Type: object.get('housing_type'),
           updatedAt: year.toString() + "/" + month.toString() + "/" + date.toString(),
@@ -82,11 +85,11 @@ export class CavityListPage {
   }
 
   selected(event, cavity) {
+    event.stopPropagation()
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
     const Cavity = Parse.Object.extend('MartinWatch_Cavities');
     const query = new Parse.Query(Cavity);
-    alert(query)
     query.get(cavity.ID).then((cav) => {
       this.navCtrl.push(NestcheckHistoryPage, {
         _cavity: cav,
@@ -96,6 +99,22 @@ export class CavityListPage {
       alert(error + "Cannot retrieve object");
     })
   }
+
+  edit(event, cavity) {
+    event.stopPropagation()
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    const Cavity = Parse.Object.extend('MartinWatch_Cavities');
+    const query = new Parse.Query(Cavity);
+    query.get(cavity.ID).then((cav) => {
+      this.navCtrl.push(EditCavityPage, {
+        cavity: cav,
+      })
+    }, (error) => {
+      alert(error + "Cannot retrieve object");
+    })
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad CavityListPage');
   }

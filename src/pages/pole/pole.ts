@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import Parse from 'parse'
 import { NewpolePage } from '../newpole/newpole';
 import { CavityListPage } from '../cavity-list/cavity-list';
+import { EditPolePage } from '../edit-pole/edit-pole';
 /**
  * Generated class for the PolePage page.
  *
@@ -67,6 +68,7 @@ export class PolePage {
   }
 
   selected(event, pole){
+    event.stopPropagation()
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
     const Pole = Parse.Object.extend("MartinWatch_Poles");
@@ -80,6 +82,20 @@ export class PolePage {
     })
   }
 
+  edit(event, pole) {
+    event.stopPropagation()
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    const Pole = Parse.Object.extend("MartinWatch_Poles");
+    const query = new Parse.Query(Pole);
+    query.get(pole.ID).then((pole) => {
+      this.navCtrl.push(EditPolePage, {
+        pole: pole,
+      })
+    }, (error) => {
+      alert(error + "Cannot retrieve object");
+    })
+  }
   ionViewWillEnter() {
     this.constructData()
   }

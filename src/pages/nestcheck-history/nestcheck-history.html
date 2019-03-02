@@ -20,7 +20,7 @@
 
 <ion-content padding>
   <ion-list>
-      <button ion-item *ngFor="let check of checks" (click)="selected($event, check)" id="checklist">
+      <button ion-item *ngFor="let check of checks" id="checklist">
           <font size="2.5">Date: {{check.date}} <br>  
             Cavity Number: {{cav_number}}&nbsp;&nbsp;&nbsp;Species: {{check.species}}</font><br>
           <font color="grey" size = "2" style="font-family:'serif'">
@@ -29,6 +29,7 @@
           <!-- <div class="item-note" item-right>
             {{watch.updatedAt}}
           </div> -->
+          <ion-icon (click) = "edit($event, check)" item-right name="create"></ion-icon>
         </button>
   </ion-list>
 </ion-content>

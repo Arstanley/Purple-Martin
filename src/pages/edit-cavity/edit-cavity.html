@@ -1,5 +1,5 @@
 <!--
-  Generated template for the NewCavityPage page.
+  Generated template for the EditCavityPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,18 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>newCavity</ion-title>
+    <ion-title>EditCavityPage</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-item>
-        <ion-label floating> Name </ion-label>
-        <ion-input type = "string" [(ngModel)] = "name"></ion-input>
-    </ion-item>
     <ion-list>
+        <ion-item>
+            <ion-label floating> Name </ion-label>
+            <ion-input type = "string" [(ngModel)] = "name">{{name}}</ion-input>
+        </ion-item>
         <ion-item>
           <ion-label floating>HOUSE TYPE</ion-label>
           <ion-select [(ngModel)] = "housing_type">
@@ -58,8 +58,11 @@
           
       </ion-list>
         <div text-center margin-top>
-          <button ion-button color = "secondary" (click) = "newCavity()">
-            Submit
+          <button ion-button color = "secondary" (click) = "updateCavity()">
+            UPDATE
           </button>
+          <button ion-button color = "danger" (click) = "deleteCavity()">
+            DELETE
+          </button> 
         </div>
 </ion-content>

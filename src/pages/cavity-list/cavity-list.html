@@ -22,10 +22,12 @@
     <ion-list>
         <button id = "cavitylist" ion-item *ngFor="let cavity of cavities" (click)="selected($event, cavity)">
           <font size="2">
-            {{cavity.order}}.&nbsp;House Type: {{cavity.Type}}<br>
+            {{cavity.order}}.&nbsp; Name: {{cavity.Name}} <br>
+            House Type: {{cavity.Type}}<br>
             Opening: {{cavity.Opening}} <br>
             Last Check: {{cavity.updatedAt}}<br>
           </font>
+          <ion-icon (click) = "edit($event, cavity)" item-right name="create"></ion-icon>
         </button>
       </ion-list>
 </ion-content>

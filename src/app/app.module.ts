@@ -27,6 +27,9 @@ import { PolePage } from '../pages/pole/pole';
 import { NestcheckHistoryPage } from '../pages/nestcheck-history/nestcheck-history';
 import { NewNestCheckPage } from '../pages/new-nest-check/new-nest-check';
 import { EditMartinWatchPage } from '../pages/edit-martin-watch/edit-martin-watch';
+import { EditPolePage } from '../pages/edit-pole/edit-pole';
+import { EditCavityPage } from '../pages/edit-cavity/edit-cavity';
+import { EditNestCheckPage } from '../pages/edit-nest-check/edit-nest-check';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { EditMartinWatchPage } from '../pages/edit-martin-watch/edit-martin-watc
     PolePage,
     NestcheckHistoryPage,
     NewNestCheckPage,
-    EditMartinWatchPage
+    EditMartinWatchPage,
+    EditPolePage,
+    EditCavityPage,
+    EditNestCheckPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,10 @@ import { EditMartinWatchPage } from '../pages/edit-martin-watch/edit-martin-watc
     PolePage,
     NestcheckHistoryPage,
     NewNestCheckPage,
-    EditMartinWatchPage
+    EditMartinWatchPage,
+    EditPolePage,
+    EditCavityPage,
+    EditNestCheckPage
   ],
   providers: [
     StatusBar,

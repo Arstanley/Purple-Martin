@@ -26,6 +26,10 @@ import {NewpolePage} from '../pages/newpole/newpole'
 import {NestcheckHistoryPage} from '../pages/nestcheck-history/nestcheck-history'
 import {NewNestCheckPage} from '../pages/new-nest-check/new-nest-check'
 import {EditMartinWatchPage} from '../pages/edit-martin-watch/edit-martin-watch'
+import {EditPolePage} from '../pages/edit-pole/edit-pole'
+import {EditCavityPage} from '../pages/edit-cavity/edit-cavity'
+import {EditNestCheckPage} from '../pages/edit-nest-check/edit-nest-check'
+
 @Component({
   templateUrl: 'app.html'
 })
