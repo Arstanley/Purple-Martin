@@ -1,5 +1,5 @@
 import { Component, Query } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import Parse from 'parse'
 import { NewCavityPage } from '../new-cavity/new-cavity';
 import { query } from '@angular/core/src/animation/dsl';
@@ -23,13 +23,23 @@ export class CavityListPage {
   colony_name: any;
   cav_num: any;
   cavities: Array<{Opening: string, Type: string, updatedAt:string, order: number, ID: string}>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.pole = this.navParams.get('pole');
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
     this.pole_name = this.pole.get("name");
     this.colony_name = this.pole.get("colony").get("Name");
-    this.constructData()
+    this.loading()
+  }
+
+  async loading() {
+    const loading = this.loadingCtrl.create({
+      spinner: "dots",
+      duration: 10000
+    })
+    loading.present()
+    await this.constructData()
+    loading.dismiss()
   }
 
   async constructData() {
