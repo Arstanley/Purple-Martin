@@ -22,7 +22,8 @@ export class EditPolePage {
   }
 
   updatePole() {
-    this.pole.set('name', this.name).then(()=>{
+    this.pole.set('name', this.name)
+    this.pole.save().then(()=>{
       alert('Successfully Updated')
     })
     this.navCtrl.pop()
