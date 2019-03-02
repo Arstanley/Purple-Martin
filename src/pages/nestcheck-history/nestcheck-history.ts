@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import Parse from 'parse'
 import { NewNestCheckPage } from '../new-nest-check/new-nest-check';
 
@@ -19,12 +19,21 @@ export class NestcheckHistoryPage {
   cavity: any
   cav_number: any
   checks: Array<{date: any, species: any, young: any, egg: any}>
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.cavity = navParams.get("_cavity")
     this.cav_number = navParams.get("cav_num")
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
-    this.constructdata();
+    this.loading()
+  }
+  async loading() {
+    const loading = this.loadingCtrl.create({
+      spinner: "dots",
+      duration: 10000
+    })
+    loading.present()
+    await this.constructdata()
+    loading.dismiss()
   }
   async constructdata(){
     const nestCheck = Parse.Object.extend("Nest_Checks");

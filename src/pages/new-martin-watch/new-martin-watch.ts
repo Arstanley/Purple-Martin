@@ -52,11 +52,12 @@ export class NewMartinWatchPage {
       .then((watch) => {
         // Success
         alert('New object created successfully');
+        this.navCtrl.pop()
       }, error => {
         // Fails
         alert('Failed to create object with error: ' + error.message)
-    }
-    )
+      }
+      )
     })
     
   }

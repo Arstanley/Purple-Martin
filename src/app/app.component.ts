@@ -25,6 +25,7 @@ import {PolePage} from '../pages/pole/pole'
 import {NewpolePage} from '../pages/newpole/newpole'
 import {NestcheckHistoryPage} from '../pages/nestcheck-history/nestcheck-history'
 import {NewNestCheckPage} from '../pages/new-nest-check/new-nest-check'
+import {EditMartinWatchPage} from '../pages/edit-martin-watch/edit-martin-watch'
 @Component({
   templateUrl: 'app.html'
 })
