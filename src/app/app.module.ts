@@ -30,6 +30,7 @@ import { EditMartinWatchPage } from '../pages/edit-martin-watch/edit-martin-watc
 import { EditPolePage } from '../pages/edit-pole/edit-pole';
 import { EditCavityPage } from '../pages/edit-cavity/edit-cavity';
 import { EditNestCheckPage } from '../pages/edit-nest-check/edit-nest-check';
+import { ProjectPage } from '../pages/project/project';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EditNestCheckPage } from '../pages/edit-nest-check/edit-nest-check';
     EditMartinWatchPage,
     EditPolePage,
     EditCavityPage,
-    EditNestCheckPage
+    EditNestCheckPage,
+    ProjectPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { EditNestCheckPage } from '../pages/edit-nest-check/edit-nest-check';
     EditMartinWatchPage,
     EditPolePage,
     EditCavityPage,
-    EditNestCheckPage
+    EditNestCheckPage,
+    ProjectPage
   ],
   providers: [
     StatusBar,

@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { HomeTabsPage } from '../home-tabs/home-tabs';
 import { PicturePage } from '../picture/picture';
 import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopmentpage';
+import { ProjectPage } from '../project/project';
+import { VisitorHomePage } from '../visitor-home/visitor-home';
+import { projection } from '@angular/core/src/render3/instructions';
 
 /**
  * Generated class for the MenuPage page.
@@ -18,7 +21,7 @@ import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopme
 })
 export class MenuPage {
   
-  rootPage = HomeTabsPage
+  rootPage: any = VisitorHomePage
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
   }
 
@@ -30,8 +33,17 @@ export class MenuPage {
     this.navCtrl.push(UnderdevelopmentpagePage)
   }
 
+  openProjectPage() {
+    this.rootPage = ProjectPage
+    this.menuCtrl.close()
+  }
+
+  openAboutPage() {
+    this.rootPage = VisitorHomePage
+    this.menuCtrl.close()
+  }
   openPicturePage(){
-    this.navCtrl.push(PicturePage)
+    this.rootPage = PicturePage
     this.menuCtrl.close()
   }
 }

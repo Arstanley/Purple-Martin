@@ -29,7 +29,7 @@ import {EditMartinWatchPage} from '../pages/edit-martin-watch/edit-martin-watch'
 import {EditPolePage} from '../pages/edit-pole/edit-pole'
 import {EditCavityPage} from '../pages/edit-cavity/edit-cavity'
 import {EditNestCheckPage} from '../pages/edit-nest-check/edit-nest-check'
-
+import {ProjectPage} from '../pages/project/project'
 @Component({
   templateUrl: 'app.html'
 })
