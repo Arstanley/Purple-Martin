@@ -6,6 +6,7 @@ import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopme
 import { ProjectPage } from '../project/project';
 import { VisitorHomePage } from '../visitor-home/visitor-home';
 import { projection } from '@angular/core/src/render3/instructions';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the MenuPage page.
@@ -21,7 +22,7 @@ import { projection } from '@angular/core/src/render3/instructions';
 })
 export class MenuPage {
   
-  rootPage: any = VisitorHomePage
+  rootPage: any = HomePage
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
   }
 
@@ -44,6 +45,10 @@ export class MenuPage {
   }
   openPicturePage(){
     this.rootPage = PicturePage
+    this.menuCtrl.close()
+  }
+  openHomePage() {
+    this.rootPage = HomePage
     this.menuCtrl.close()
   }
 }

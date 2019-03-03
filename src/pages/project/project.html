@@ -15,18 +15,22 @@
 
 
 <ion-content padding>
- <div>
-  <button class = "customBtn" ion-button size="default" round color = "light" (click)="openScout()">
-    SCOUT ARRIVAL
+ <ion-list>
+  <button ion-button class = "customBtn" size="default" full round color = "light" (click)="openScout()">
+    SCOUT ARRIVAL <br> <br>
+    ENTRIES: {{num_entries}}
   </button>
-  <button class = "customBtn" ion-button size="default" round color = "light" (click)="openMW()">
-    MARTIN WATCH
+  <button ion-button class = "customBtn" size="default" full round color = "light" (click)="openMW()">
+    MARTIN WATCH <br> <br>
+    COLONIES: {{num_colonies}} &ensp;
+    POLES: {{num_poles}} &ensp;
+    CAVATIES: {{num_cavaties}} <br>
   </button>
-  <button class = "customBtn" ion-button size="default" round color = "light" (click)="openUD()">
+  <button ion-button class = "customBtnUD" size="default" full round color = "light" (click)="openUD()">
     ROOSTWATCH
   </button>
-  <button class = "customBtn" ion-button size="default" round color = "light" (click)="openUD()">
-    MORE
+  <button ion-button class = "customBtnUD" size="default" full round color = "light" (click)="openUD()">
+    HELP
   </button>
- </div>
+ </ion-list>
 </ion-content>
