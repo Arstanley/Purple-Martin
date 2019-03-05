@@ -107,4 +107,11 @@ export class MartinWatchPage {
       alert(error + "Cannot retrieve object");
     })
   }
+
+  ionViewDidEnter() {
+    if(this.watches.length == 0) {
+      document.getElementById("info").innerHTML = "NO COLONY, PLEASE ADD A NEW ONE";
+    }
+  }
+
 }

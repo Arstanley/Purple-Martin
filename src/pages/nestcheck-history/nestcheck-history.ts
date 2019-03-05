@@ -94,4 +94,10 @@ export class NestcheckHistoryPage {
   ionViewWillEnter() {
     this.loading()
   }
+
+  ionViewDidEnter() {
+    if(this.checks.length == 1 && this.checks[0].date == "No data available, please enter a new check") {
+      document.getElementById("info").innerHTML = "NO NESTCHECK HISTORY, PLEASE ADD A NEW ONE";
+    }
+  }
 }

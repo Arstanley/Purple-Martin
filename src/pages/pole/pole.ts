@@ -102,6 +102,12 @@ export class PolePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PolePage');
+    
+  }
+  ionViewDidEnter() {
+    if(this.poles.length == 1 && this.poles[0].name=="No Data Available; Please add a cavity.") {
+      document.getElementById("info").innerHTML = "NO POLE, PLEASE ADD A NEW ONE";
+    }
   }
 
 }

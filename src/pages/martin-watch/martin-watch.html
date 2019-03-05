@@ -21,7 +21,7 @@
 
 <ion-content padding>
     <ion-list>
-        <button ion-item *ngFor="let watch of watches" (click)="selected($event, watch)">
+        <button id = "info" ion-item *ngFor="let watch of watches" (click)="selected($event, watch)">
           <font size="3">Colony Name: {{watch.Name}}</font><br>
           <font color="grey" size = "2" style="font-family:'serif'">
           Poles: {{watch.num_poles}} <br>

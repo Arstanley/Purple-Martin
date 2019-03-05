@@ -121,5 +121,10 @@ export class CavityListPage {
   ionViewWillEnter(){
     this.constructData();
   }
+  ionViewDidEnter() {
+    if(this.cavities.length == 1 && this.cavities[0].Name== "No Data Available; Please add a cavity") {
+      document.getElementById("info").innerHTML = "NO CAVATY, PLEASE ADD A NEW ONE";
+    }
+  }
 
 }
