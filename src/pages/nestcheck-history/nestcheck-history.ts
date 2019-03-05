@@ -27,6 +27,7 @@ export class NestcheckHistoryPage {
     Parse.serverURL = 'https://parseapi.back4app.com/';
     this.loading()
   }
+
   async loading() {
     const loading = this.loadingCtrl.create({
       spinner: "dots",
@@ -90,4 +91,7 @@ export class NestcheckHistoryPage {
     console.log('ionViewDidLoad NestcheckHistoryPage');
   }
 
+  ionViewWillEnter() {
+    this.loading()
+  }
 }
