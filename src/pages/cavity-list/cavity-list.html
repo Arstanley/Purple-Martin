@@ -1,0 +1,33 @@
+<!--
+  Generated template for the CavityListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{colony_name}}&#8594;{{pole_name}}</ion-title>
+    <ion-buttons end icon-only>
+        <button (click) = "addCavity()">
+          <ion-icon name = "add"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <button id = "cavitylist" ion-item *ngFor="let cavity of cavities" (click)="selected($event, cavity)">
+          <font size="2">
+            {{cavity.order}}.&nbsp; Name: {{cavity.Name}} <br>
+            House Type: {{cavity.Type}}<br>
+            Opening: {{cavity.Opening}} <br>
+            Last Check: {{cavity.updatedAt}}<br>
+          </font>
+          <ion-icon (click) = "edit($event, cavity)" item-right name="create"></ion-icon>
+        </button>
+      </ion-list>
+</ion-content>

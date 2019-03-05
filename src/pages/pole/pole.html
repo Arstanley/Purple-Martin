@@ -1,0 +1,32 @@
+<!--
+  Generated template for the PolePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title class="subtitle">{{colony_name}}</ion-title>
+    <ion-buttons end icon-only>
+      <button (click) = "addPole()">
+        <ion-icon name = "add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button id = "info" ion-item *ngFor="let pole of poles" (click)="selected($event, pole)">
+      <font size="2">
+        Name: {{pole.name}}<br>
+        Number of Cavities : {{pole.num_cavity}}<br>
+      </font>
+      <ion-icon (click) = "edit($event, pole)" item-right name="create"></ion-icon>
+    </button>
+    
+  </ion-list>
+</ion-content>

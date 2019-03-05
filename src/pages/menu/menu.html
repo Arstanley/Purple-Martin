@@ -13,8 +13,17 @@
     </ion-header>
     <ion-content>
       <ion-list>
+          <button ion-item (click)="openHomePage()">
+              Home
+            </button>
+        <button ion-item (click)="openProjectPage()">
+          Projects
+        </button>
         <button ion-item (click)="openPicturePage()">
           Pictures
+        </button>
+        <button ion-item (click) = "openAboutPage()">
+          About
         </button>
         <button ion-item (click)="openDevelopment()">
           Settings

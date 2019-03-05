@@ -20,6 +20,17 @@ import { MartinwatchhelppagePage } from '../pages/martinwatchhelppage/martinwatc
 import { MartinDataHistoryPage } from '../pages/martin-data-history/martin-data-history';
 import {IonicStorageModule} from '@ionic/storage'
 import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdevelopmentpage';
+import {CavityListPage} from '../pages/cavity-list/cavity-list'
+import {NewCavityPage} from '../pages/new-cavity/new-cavity'
+import { NewpolePage } from '../pages/newpole/newpole';
+import { PolePage } from '../pages/pole/pole';
+import { NestcheckHistoryPage } from '../pages/nestcheck-history/nestcheck-history';
+import { NewNestCheckPage } from '../pages/new-nest-check/new-nest-check';
+import { EditMartinWatchPage } from '../pages/edit-martin-watch/edit-martin-watch';
+import { EditPolePage } from '../pages/edit-pole/edit-pole';
+import { EditCavityPage } from '../pages/edit-cavity/edit-cavity';
+import { EditNestCheckPage } from '../pages/edit-nest-check/edit-nest-check';
+import { ProjectPage } from '../pages/project/project';
 
 @NgModule({
   declarations: [
@@ -37,7 +48,18 @@ import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdev
     MartinwatchdataPage,
     MartinwatchhelppagePage,
     MartinDataHistoryPage,
-    UnderdevelopmentpagePage
+    UnderdevelopmentpagePage,
+    CavityListPage,
+    NewCavityPage,
+    NewpolePage,
+    PolePage,
+    NestcheckHistoryPage,
+    NewNestCheckPage,
+    EditMartinWatchPage,
+    EditPolePage,
+    EditCavityPage,
+    EditNestCheckPage,
+    ProjectPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +82,18 @@ import { UnderdevelopmentpagePage } from '../pages/underdevelopmentpage/underdev
     MartinwatchdataPage,
     MartinwatchhelppagePage,
     MartinDataHistoryPage,
-    UnderdevelopmentpagePage
+    UnderdevelopmentpagePage,
+    CavityListPage,
+    NewCavityPage,
+    NewpolePage,
+    PolePage,
+    NestcheckHistoryPage,
+    NewNestCheckPage,
+    EditMartinWatchPage,
+    EditPolePage,
+    EditCavityPage,
+    EditNestCheckPage,
+    ProjectPage
   ],
   providers: [
     StatusBar,

@@ -1,29 +1,50 @@
 <ion-header>
-  <ion-navbar >
-    <ion-title>Forms and Activities</ion-title>
-  </ion-navbar>
-</ion-header>
-
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Home --v0.2.0</ion-title>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content padding>
+  <p style="text-align:center;">
+    <img src="../../assets/imgs/PMLOGO.png" width="50%">
+  </p>
   <h1>
-    Available Projects 
+    News 
   </h1>
 
-  <div align = 'center'>
-    <button ion-item (click)="openScoutArrivalPage()">
-      Scout Arrival Study
-    </button>
-    <button ion-item (click)="oepnMartinWatchPage()">
-      Project MartinWatch
-    </button>
-    <button ion-item (click)="openDevelopmentPage()">
-      Project RoostWatch
-    </button>
-    <button ion-item (click)="openDevelopmentPage()">
-      Settings
-    </button>
-  </div>
+  <ion-list>
+    <ion-item class="news-item">
+      UPDATE: THE MARTINS ARE ON THEIR WAY <br>
+      31 Jan 2019
+    </ion-item>
+    <ion-item class="news-item">
+        UPDATE: GPS DEPLOYMENT<br>
+        27 Jul 2018
+    </ion-item>
+    <ion-item class="news-item">
+        UPDATE: FLEDGLINGS – PLUG AND STRING METHOD<br>
+        23 Jul 2018
+    </ion-item>
+    <ion-item class="news-item">
+        UPDATE: BANDING WEEK<br>
+        26 Jul 2018
+    </ion-item>
+    <ion-item class="news-item">
+        UPDATE: HATCHING HAS BEGUN<br>
+        13 Jul 2018
+    </ion-item>
+    <ion-item class="news-item">
+        UPDATE: HATCHING HAS BEGUN<br>
+        13 Jul 2018
+    </ion-item>
+    <ion-item class="news-item">
+        UPDATE: HATCHING HAS BEGUN<br>
+        13 Jul 2018
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <!-- <ion-menu id = 'homeMenu' [content]="content">

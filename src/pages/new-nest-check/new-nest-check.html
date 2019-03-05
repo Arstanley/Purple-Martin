@@ -1,0 +1,93 @@
+<!--
+  Generated template for the NewNestCheckPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Check</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating> </ion-label>
+      <ion-input type = "date" [(ngModel)] = "date"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>SPECIES</ion-label>
+        <ion-select [(ngModel)] = "species">
+          <ion-option value = "Purple Martin"> Purple Martin </ion-option>
+          <ion-option value = "House Sparrow"> House Sparrow </ion-option>
+          <ion-option value = "European Starling"> European Starling </ion-option>
+          <ion-option value = "House Wren"> House Wren </ion-option>
+          <ion-option value = "Tree Swallow"> Tree Swallow </ion-option>
+          <ion-option value = "Bluebird"> Bluebird </ion-option>
+          <ion-option value = "N/A"> N/A </ion-option>
+          <ion-option value = "Other"> Other </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>MALE AGE</ion-label>
+      <ion-select [(ngModel)] = "male_age">
+        <ion-option value = "SY"> SY </ion-option>
+        <ion-option value = "ASY"> ASY </ion-option>
+        <ion-option value = "unknown"> Unknown </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>FEMALE AGE</ion-label>
+      <ion-select [(ngModel)] = "female_age">
+        <ion-option value = "SY"> SY </ion-option>
+        <ion-option value = "ASY"> ASY </ion-option>
+        <ion-option value = "unknown"> Unknown </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>NEST STAGE</ion-label>
+      <ion-select [(ngModel)] = "nest_stage">
+        <ion-option value = "None"> None </ion-option>
+        <ion-option value = "Partial"> Partial </ion-option>
+        <ion-option value = "Nest"> Nest </ion-option>
+        <ion-option value = "Nest with Green Leaves"> Nest w/Green Leaves </ion-option>
+        <ion-option value = "Re-Nest"> Re-Nest </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating> # YOUNGS </ion-label>
+      <ion-input type = "number" [(ngModel)] = "young"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating> # EGGS </ion-label>
+      <ion-input type = "number" [(ngModel)] = "egg"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>ACTION</ion-label>
+      <ion-select [(ngModel)] = "action">
+        <ion-option value = "None"> None </ion-option>
+        <ion-option value = "Non-Native Nest Removed"> Non-Native Nest Removed </ion-option>
+        <ion-option value = "Nest Replaced"> Nest Replaced </ion-option>
+        <ion-option value = "Banded"> Banded </ion-option>
+        <ion-option value = "Eggs Discarded"> Eggs Discarded </ion-option>
+        <ion-option value = "Dead adult removed"> Dead adult removed </ion-option>
+        <ion-option value = "Dead nestlings removed"> Dead nestlings removed </ion-option>
+        <ion-option value = "Final check: Empty"> Final check: Empty </ion-option>
+        <ion-option value = "Other-see notes"> Other-see notes</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating> NOTES (MODIFICATIONS, ETC.) </ion-label>
+      <ion-input type = "string" [(ngModel)] = "notes"></ion-input>
+    </ion-item>
+  </ion-list>
+    <div text-center margin-top>
+      <button ion-button color = "secondary" (click) = "newCheck()">
+        Submit
+      </button>
+    </div>
+</ion-content>
