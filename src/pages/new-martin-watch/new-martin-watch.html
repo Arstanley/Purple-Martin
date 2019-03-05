@@ -16,44 +16,44 @@
 <ion-list>
   <ion-item>
     <ion-label floating> Colony Name </ion-label>
-    <ion-input type = "string" [(ngModel)] = "name"></ion-input>
+    <ion-input type = "string" [(ngModel)] = "name" required></ion-input>
   </ion-item>
   <ion-item>
     <ion-label floating>Legal Designation</ion-label>
-    <ion-select [(ngModel)] = "public">
+    <ion-select [(ngModel)] = "public" required>
       <ion-option value = "public"> public </ion-option>
       <ion-option value = "private"> private </ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
       <ion-label floating> Address </ion-label>
-      <ion-input type = "string" [(ngModel)] = "address"></ion-input>
+      <ion-input type = "string" [(ngModel)] = "address" required></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating> City </ion-label>
-      <ion-input type = "string" [(ngModel)] = "city"></ion-input>
+      <ion-input type = "string" [(ngModel)] = "city" required></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating> Region/State </ion-label>
-      <ion-input type = "string" [(ngModel)] = "state"></ion-input>
+      <ion-input type = "string" [(ngModel)] = "state" required></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating> Post Code </ion-label>
-      <ion-input type = "number" [(ngModel)] = "post_code"></ion-input>
+      <ion-input type = "number" [(ngModel)] = "post_code" required></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating>Country</ion-label>
-      <ion-select [(ngModel)] = "country">
+      <ion-select [(ngModel)] = "country" required>
         <ion-option value = "USA"> USA </ion-option>
         <ion-option value = "Canada"> Canada </ion-option>
       </ion-select>
   </ion-item>
   <ion-item>
-      <ion-label floating> Latitude </ion-label>
+      <ion-label floating> Latitude(Optional) </ion-label>
       <ion-input type = "number" [(ngModel)] = "latitude"></ion-input>
   </ion-item>
   <ion-item>
-      <ion-label floating> Longitude </ion-label>
+      <ion-label floating> Longitude(Optional) </ion-label>
       <ion-input type = "number" [(ngModel)] = "longitude"></ion-input>
   </ion-item>
 </ion-list>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import Parse from 'parse'
 /**
  * Generated class for the NewpolePage page.
@@ -16,23 +16,33 @@ import Parse from 'parse'
 export class NewpolePage {
   name: any
   colony: any
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.colony = navParams.get('colony');
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
   }
+  
   newPole() {
-    const Pole = Parse.Object.extend("MartinWatch_Poles");
-    const newPole = new Pole();
-    newPole.set("colony", this.colony);
-    newPole.set("name", this.name);
-    newPole.set("num_cavity", '0')
-    newPole.save().then(()=>{
-      alert("Successfully submitted!")
-      this.updateColony()
-    }, (error)=>{
-      alert("Error" + error)
-    })
+    if(this.name == undefined) {
+      const alertCT = this.alertCtrl.create({
+        title: "Warning",
+        subTitle: "please fill in all fields",
+        buttons: ["OK"]
+      });
+      alertCT.present();
+    } else {
+      const Pole = Parse.Object.extend("MartinWatch_Poles");
+      const newPole = new Pole();
+      newPole.set("colony", this.colony);
+      newPole.set("name", this.name);
+      newPole.set("num_cavity", '0')
+      newPole.save().then(()=>{
+        alert("Successfully submitted!")
+        this.updateColony()
+      }, (error)=>{
+        alert("Error" + error)
+      })
+    }
   }
 
   updateColony(){
