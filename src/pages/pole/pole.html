@@ -23,7 +23,7 @@
     <button id = "info" ion-item *ngFor="let pole of poles" (click)="selected($event, pole)">
       <font size="2">
         Name: {{pole.name}}<br>
-        Cavity# : {{pole.num_cavity}}<br>
+        Number of Cavities : {{pole.num_cavity}}<br>
       </font>
       <ion-icon (click) = "edit($event, pole)" item-right name="create"></ion-icon>
     </button>
