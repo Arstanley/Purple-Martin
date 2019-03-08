@@ -45,6 +45,7 @@ export class MartinWatchPage {
     const Watch = Parse.Object.extend("MartinWatch");
     const query = new Parse.Query(Watch);
     query.equalTo("userid", this.email);
+    query.equalTo("Finalized", undefined);
     const results = await query.find();
     this.watches = []
     for (let i = 0; i < results.length; i++){
