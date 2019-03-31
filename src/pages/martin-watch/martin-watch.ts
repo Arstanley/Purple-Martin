@@ -30,6 +30,7 @@ export class MartinWatchPage {
       this.load()
     })
   }
+  
   async load() {
     const loading = this.loadingCtrl.create({
       spinner: "dots",

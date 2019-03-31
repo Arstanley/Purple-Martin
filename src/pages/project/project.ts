@@ -8,6 +8,7 @@ import Parse from 'parse'
 import {Storage} from '@ionic/storage'
 import { ToastController } from 'ionic-angular';
 import { MartinRoostPage } from '../new-martin-roost/martin-roost';
+import { MartinRoostListPage } from '../martin-roost-list/martin-roost-list';
 
 /**
  * Generated class for the ProjectPage page.
@@ -109,7 +110,38 @@ export class ProjectPage {
     // this.menu.close;
   }
   openMR() {
-    this.navCtrl.push(MartinRoostPage)
+    this.storage.length().then((data) => {
+      if(data == 0) {
+        this.alertCtrl.create({
+          title: 'E-mail identification needed',
+          inputs: [
+            {
+              name: 'email',
+              type: 'email',
+              placeholder: 'Email address'
+            }
+          ],
+          buttons: [
+            {
+              text: 'Submit',
+              handler: data => {
+                this.uploadEmail(data.email);
+              }
+            },
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              cssClass: 'secondary'
+            }
+          ]
+        }).present()
+      } else {
+        // this.storage.get('email').then((val)=>{
+        //   alert(val)
+        // })
+        this.navCtrl.push(MartinRoostListPage)
+      }
+    })
   }
   openMW(event){
     this.storage.length().then((data) => {

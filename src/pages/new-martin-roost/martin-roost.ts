@@ -87,6 +87,7 @@ export class MartinRoostPage {
           newRoost.set('comments', this.comments)
           newRoost.set('privacy', Boolean(this.privacy))
           newRoost.set('email', val)
+          newRoost.set('status', "Pending")
           newRoost.save().then(()=>{
             alert('Successfully Submitted')
             this.navCtrl.pop()
