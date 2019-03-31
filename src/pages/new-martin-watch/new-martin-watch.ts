@@ -36,7 +36,6 @@ export class NewMartinWatchPage {
   }
 
   newColony(){
-    alert(this.name)
     if(this.name == undefined || 
     this.public == undefined || 
     this.address == undefined || 

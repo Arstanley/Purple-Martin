@@ -30,7 +30,9 @@ import {EditPolePage} from '../pages/edit-pole/edit-pole'
 import {EditCavityPage} from '../pages/edit-cavity/edit-cavity'
 import {EditNestCheckPage} from '../pages/edit-nest-check/edit-nest-check'
 import {ProjectPage} from '../pages/project/project'
-@Component({
+import {MartinRoostPage} from '../pages/new-martin-roost/martin-roost'
+import {MartinRoostListPage} from '../pages/martin-roost-list/martin-roost-list'
+@Component({ 
   templateUrl: 'app.html'
 })
 export class MyApp {

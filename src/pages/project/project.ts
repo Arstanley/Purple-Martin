@@ -7,6 +7,7 @@ import { MartinWatchPage } from '../martin-watch/martin-watch';
 import Parse from 'parse'
 import {Storage} from '@ionic/storage'
 import { ToastController } from 'ionic-angular';
+import { MartinRoostPage } from '../new-martin-roost/martin-roost';
 
 /**
  * Generated class for the ProjectPage page.
@@ -26,6 +27,7 @@ export class ProjectPage {
   num_colonies: any = 0
   num_poles: any = 0
   num_cavaties: any = 0
+  num_roost_entries: any = 0
   constructor(public loadingCtrl: LoadingController ,
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -50,6 +52,14 @@ export class ProjectPage {
   }
 
   async constructdata(){
+    // MartinRoost Data
+    const Roost = Parse.Object.extend("MartinRoost")
+    const RoostQuery = new Parse.Query(Roost)
+    RoostQuery.equalTo("email", this.email)
+    const res = await RoostQuery.find();
+    this.num_roost_entries = res.length
+
+    // MartinWatch Data
     const Watch = Parse.Object.extend("MartinWatch");
     const query = new Parse.Query(Watch);
     query.equalTo("userid", this.email);
@@ -98,7 +108,9 @@ export class ProjectPage {
     // this.navCtrl.push(ScoutArrivalPage),
     // this.menu.close;
   }
-
+  openMR() {
+    this.navCtrl.push(MartinRoostPage)
+  }
   openMW(event){
     this.storage.length().then((data) => {
       if(data == 0) {

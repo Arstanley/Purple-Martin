@@ -1,0 +1,260 @@
+<!--
+  Generated template for the MartinRoostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MartinRoost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-slides #formSlider>
+      <ion-slide>
+        <p><font color = "purple" size = "5">ROOST TITLE/LOCATION</font></p>
+          <ion-list>
+                  <ion-item>
+                      <ion-label floating>ROOST TITLE (Required)</ion-label>
+                      <ion-input [(ngModel)] = "title" type="text" required = "true"></ion-input>
+                  </ion-item>
+           
+                  <ion-item>
+                      <ion-label floating>City(Required)</ion-label>
+                      <ion-input [(ngModel)] = "city" type="text" required = "true"></ion-input>
+                  </ion-item>
+                  
+
+                  <ion-item>
+                      <ion-label floating>State(Required)</ion-label>
+                        <ion-select [(ngModel)]="state">
+                          <ion-option value="Alabama">Alabama</ion-option>
+                          <ion-option value="Alaska">Alaska</ion-option>
+                          <ion-option value="Arizona">Arizona</ion-option>
+                          <ion-option value="Arkansas">Arkansas</ion-option>
+                          <ion-option value="California">California</ion-option>
+                          <ion-option value="Colorado">Colorado</ion-option>
+                          <ion-option value="Connecticut">Connecticut</ion-option>
+                          <ion-option value="Delaware">Delaware</ion-option>
+                          <ion-option value="District of Columbia">District of Columbia</ion-option>
+                          <ion-option value="Florida">Florida</ion-option>
+                          <ion-option value="Georgia">Georgia</ion-option>
+                          <ion-option value="Hawaii">Hawaii</ion-option>
+                          <ion-option value="Idaho">Idaho</ion-option>
+                          <ion-option value="Illinois">Illinois</ion-option>
+                          <ion-option value="Indiana">Indiana</ion-option>
+                          <ion-option value="Iowa">Iowa</ion-option>
+                          <ion-option value="Kansas">Kansas</ion-option>
+                          <ion-option value="Kentucky">Kentucky</ion-option>
+                          <ion-option value="Louisiana">Louisiana</ion-option>
+                          <ion-option value="Maine">Maine</ion-option>
+                          <ion-option value="Maryland">Maryland</ion-option>
+                          <ion-option value="Massachusetts">Massachusetts</ion-option>
+                          <ion-option value="Michigan">Michigan</ion-option>
+                          <ion-option value="Minnesota">Minnesota</ion-option>
+                          <ion-option value="Mississippi">Mississippi</ion-option>
+                          <ion-option value="Missouri">Missouri</ion-option>
+                          <ion-option value="Montana">Montana</ion-option>
+                          <ion-option value="Nebraska">Nebraska</ion-option>
+                          <ion-option value="Nevada">Nevada</ion-option>
+                          <ion-option value="New Hampshire">New Hampshire</ion-option>
+                          <ion-option value="New Jersey">New Jersey</ion-option>
+                          <ion-option value="New Mexico">New Mexico</ion-option>
+                          <ion-option value="New York">New York</ion-option>
+                          <ion-option value="North Carolina">North Carolina</ion-option>
+                          <ion-option value="North Dakota">North Dakota</ion-option>
+                          <ion-option value="Ohio">Ohio</ion-option>
+                          <ion-option value="Oklahoma">Oklahoma</ion-option>
+                          <ion-option value="Oregon">Oregon</ion-option>
+                          <ion-option value="Pennsylvania">Pennsylvania</ion-option>
+                          <ion-option value="Rhode Island">Rhode Island</ion-option>
+                          <ion-option value="South Carolina">South Carolina</ion-option>
+                          <ion-option value="South Dakota">South Dakota</ion-option>
+                          <ion-option value="Tennessee">Tennessee</ion-option>
+                          <ion-option value="Texas">Texas</ion-option>
+                          <ion-option value="Utah">Utah</ion-option>
+                          <ion-option value="Vermont">Vermont</ion-option>
+                          <ion-option value="Virginia">Virginia</ion-option>
+                          <ion-option value="Washington">Washington</ion-option>
+                          <ion-option value="West Virginia">West Virginia</ion-option>
+                          <ion-option value="Wisconsin">Wisconsin</ion-option>
+                          <ion-option value="Wyoming">Wyoming</ion-option>
+                          <ion-option value="Alberta">Alberta</ion-option>
+                          <ion-option value="British Columbia">British Columbia</ion-option>
+                          <ion-option value="Manitoba">Manitoba</ion-option>
+                          <ion-option value="New Brunswick">New Brunswick</ion-option>
+                          <ion-option value="Newfoundlab/Labrador">Newfoundlab/Labrador</ion-option>
+                          <ion-option value="Northwest Territories">Northwest Territories</ion-option>
+                          <ion-option value="Nova Scotia">Nova Scotia</ion-option>
+                          <ion-option value="Nunavut">Nunavut</ion-option>
+                          <ion-option value="Ontario">Ontario</ion-option>
+                          <ion-option value="Prince Edward Island">Prince Edward Island</ion-option>
+                          <ion-option value="Quebec">Quebec</ion-option>
+                          <ion-option value="Saskatchewan">Saskatchewan</ion-option>
+                          <ion-option value="Yukon">Yukon</ion-option>
+                        </ion-select>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label floating>Latitude(Required)</ion-label>
+                      <ion-input [(ngModel)]="latitude" required = "true"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label floating>Longitude(Required)</ion-label>
+                    <ion-input [(ngModel)]="longitude" required = "true"></ion-input>
+                </ion-item>
+              
+              <div text-center margin-top>
+                  <button ion-button (click)="next()">
+                    NEXT
+                  </button>
+              </div>
+
+           </ion-list>
+      </ion-slide>
+      
+      <ion-slide>
+          <p><font color = "purple" size = "5">ROOST INFORMATION</font></p>
+        <ion-list>
+          
+              
+              <ion-item>
+                  <ion-label color="primary" margin-right="10px" stacked>ACTIVE DURING LAST SEASON? (Required)</ion-label>
+                  <ion-select [(ngModel)] = "activels" interface = "popover" required="true">
+                      <ion-option value="yes">YES</ion-option>
+                      <ion-option value="no">NO</ion-option>
+                      <ion-option value="unknown">UNKNOWN</ion-option>
+                  </ion-select>
+              </ion-item>
+              
+              <ion-item>
+                  <ion-label color="primary" stacked>ETIMATED NUMBER OF PURPLE MARTINS</ion-label>
+                  <ion-input [(ngModel)] = "numPM" type="number" placeholder="0"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label color="primary" stacked>SPECIES COMPOSITION</ion-label>
+                  <ion-input [(ngModel)] = "scomposition" placeholder = "eg. Purple Martin etc."></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary" stacked>IS ROOT ACCESSIBLE TO PUBLIC?</ion-label>
+                <ion-select [(ngModel)] = "accessiblity" interface = "popover">
+                  <ion-option value = "yes">YES</ion-option>
+                  <ion-option value = "no">NO</ion-option>
+                  <ion-option value = "unknown">UNKNOWN</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary" stacked>DEATILED LOCATION DESCRIPTION</ion-label>
+                <ion-input [(ngModel)] = "dir_detail"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" stacked>DEATILED HABITAT DESCRIPTION</ion-label>
+              <ion-input [(ngModel)] = "habitat_detail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" stacked>ROOST HISTORY</ion-label>
+            <ion-input [(ngModel)] = "history"></ion-input>
+        </ion-item>
+          
+
+
+        </ion-list>
+        <div text-center margin-top>
+            <button ion-button (click)="prev()">
+              PREVIOUS
+        </button>
+        
+        <button ion-button margin-right (click)="next()">
+                NEXT
+          </button>
+            
+          
+            
+        </div>
+      </ion-slide>
+
+
+      <ion-slide>
+          <p><font color = "purple" size = "5">TIMEFRAME OF ROOST</font></p>
+          <ion-list>
+                <ion-item>
+                    <ion-label color="primary" stacked>APPROXIMATELY WHEN DOES THE ROOST BEGIN</ion-label>
+                    <ion-input type="date" [(ngModel)] = "begin"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label color = "primary" stacked>APPROXIMATELY WHEN DOES THE ROOST END</ion-label>
+                    <ion-input type="date" [(ngModel)] = "end"></ion-input>
+                </ion-item>
+          </ion-list>
+          <div text-center margin-top>
+              <button ion-button (click)="prev()">
+                PREVIOUS
+              </button>
+              <button ion-button margin-right (click)="next()">
+                NEXT
+              </button>
+              
+          </div>
+      </ion-slide>
+
+      <ion-slide>
+          <p><font color = "purple" size = "5">ADDITIONAL OBSERVATIONS</font></p>
+          <ion-list>
+                <ion-item>
+                    <ion-label floating>THREATS/PROBLEMS</ion-label>
+                    <ion-input [(ngModel)]="threats"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating>OPPORTUNITIES</ion-label>
+                    <ion-input [(ngModel)]="opportunities"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>ADDITIONAL COMMENTS</ion-label>
+                  <ion-input [(ngModel)]="comments"></ion-input>
+              </ion-item>
+          </ion-list>
+          <div text-center margin-top>
+              <button ion-button (click)="prev()">
+                PREVIOUS
+              </button>
+              <button ion-button margin-right (click)="next()">
+                NEXT
+              </button>
+              
+          </div>
+      </ion-slide>
+      
+      <ion-slide>
+          <p><font color = "purple" size = "5">PRIVACY</font></p>
+          <ion-list>
+            <ion-item>
+              <ion-label floating>HIDE MY NAME</ion-label>
+              <ion-select [(ngModel)] = "privacy" interface = "popover">
+                <ion-option value = "true">YES</ion-option>
+                <ion-option value = "false">NO</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <div text-center margin-top>
+              <button ion-button (click)="prev()">
+                PREVIOUS
+              </button>
+              
+          </div>
+          <div text-center margin-top>
+            <button ion-button color = "secondary" (click) = submit()>
+              Submit
+            </button>
+          </div>
+      </ion-slide>
+ 
+  </ion-slides>
+</ion-content> 
