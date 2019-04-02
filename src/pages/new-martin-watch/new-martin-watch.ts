@@ -26,6 +26,9 @@ export class NewMartinWatchPage {
   country: any
   latitude: number
   longitude: number
+  colonies: Array<any>
+  email: any
+  colony: any
 
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
@@ -33,7 +36,6 @@ export class NewMartinWatchPage {
   }
 
   newColony(){
-    alert(this.name)
     if(this.name == undefined || 
     this.public == undefined || 
     this.address == undefined || 
@@ -75,6 +77,37 @@ export class NewMartinWatchPage {
         )
       })
     }
+  }
+
+  ionViewWillEnter() {
+    this.storage.get('email').then((val)=>{
+      this.email = val;
+      this.constructPreviousList()
+    })
+  }
+
+  async logChosen() {
+    const colony = Parse.Object.extend('MartinWatch');
+    const q = new Parse.Query(colony);
+    q.equalTo("userid", this.email);
+    q.equalTo("Name", this.colony);
+    const results= await q.find()
+    this.latitude = results[0].get("Latitude")
+    this.longitude = results[0].get("Longitude")
+    this.post_code = results[0].get("Post_Code")
+    this.state = results[0].get("State")
+    this.address = results[0].get("Address")
+    this.city = results[0].get("City")
+    this.public = results[0].get("Publicity")
+    this.country = results[0].get("Country")
+  }
+
+  async constructPreviousList() {
+    const colony = Parse.Object.extend('MartinWatch');
+    const q = new Parse.Query(colony);
+    q.equalTo("userid", this.email);
+    q.equalTo("Finalized", true);
+    this.colonies = await q.find()
   }
 
   ionViewDidLoad() {

@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { FormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {ScoutArrivalPage} from '../pages/scout-arrival/scout-arrival'
@@ -31,6 +31,8 @@ import { EditPolePage } from '../pages/edit-pole/edit-pole';
 import { EditCavityPage } from '../pages/edit-cavity/edit-cavity';
 import { EditNestCheckPage } from '../pages/edit-nest-check/edit-nest-check';
 import { ProjectPage } from '../pages/project/project';
+import { MartinRoostPage } from '../pages/new-martin-roost/martin-roost';
+import { MartinRoostListPage } from '../pages/martin-roost-list/martin-roost-list';
 
 @NgModule({
   declarations: [
@@ -59,12 +61,15 @@ import { ProjectPage } from '../pages/project/project';
     EditPolePage,
     EditCavityPage,
     EditNestCheckPage,
-    ProjectPage
+    ProjectPage,
+    MartinRoostPage,
+    MartinRoostListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -93,7 +98,9 @@ import { ProjectPage } from '../pages/project/project';
     EditPolePage,
     EditCavityPage,
     EditNestCheckPage,
-    ProjectPage
+    ProjectPage,
+    MartinRoostPage,
+    MartinRoostListPage
   ],
   providers: [
     StatusBar,

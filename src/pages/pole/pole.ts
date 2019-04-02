@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import Parse from 'parse'
 import { NewpolePage } from '../newpole/newpole';
 import { CavityListPage } from '../cavity-list/cavity-list';
@@ -20,7 +20,7 @@ export class PolePage {
   colony: any
   colony_name: any
   poles: Array<{name: string, num_cavity: string, ID: string}>;
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertCtrl: AlertController, public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.colony = this.navParams.get('colony')
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
@@ -96,14 +96,46 @@ export class PolePage {
       alert(error + "Cannot retrieve object");
     })
   }
+  
   ionViewWillEnter() {
     this.constructData()
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PolePage');
-    
   }
+
+  finalize() {
+    this.alertCtrl.create({
+      title: 'Confirm',
+      message: 'After clicking Confirm, you will no longer be able to edit any information, and your data will be marked as finalized in our database',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Finalize',
+          cssClass: 'danger',
+          handler: () => {
+            this.submitData();
+          }
+        }
+      ]
+
+    }).present()
+
+  }
+
+  submitData() {
+    this.colony.set('Finalized', true)
+    this.colony.save().then(()=>{
+      alert('Successfully Finalized')
+    })
+    this.navCtrl.pop()
+  }
+
   ionViewDidEnter() {
     if(this.poles.length == 1 && this.poles[0].name=="No Data Available; Please add a cavity.") {
       document.getElementById("info").innerHTML = "NO POLE, PLEASE ADD A NEW ONE";
