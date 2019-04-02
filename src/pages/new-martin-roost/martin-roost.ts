@@ -35,7 +35,7 @@ export class MartinRoostPage {
   opportunities: any
   comments: any
   privacy: boolean
-
+  currentRoost: any
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public alertCtrl: AlertController) {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
@@ -73,6 +73,7 @@ export class MartinRoostPage {
     query.equalTo("status", "Saved");
     const res = await query.find()
     if(res.length != 0) {
+      this.currentRoost = res[0]
       this.title = res[0].get('title')
       this.city = res[0].get('city')
       this.state = res[0].get('state')
@@ -96,32 +97,34 @@ export class MartinRoostPage {
 
   ionViewWillLeave() {
     this.storage.get('email').then((val)=>{
-      const Roost = Parse.Object.extend("MartinRoost")
-          const newRoost = new Roost()
-          newRoost.set('title', this.title)
-          newRoost.set('city', this.city)
-          newRoost.set('state', this.state)
-          newRoost.set('latitude', this.latitude)
-          newRoost.set('longitude', this.longitude)
-          newRoost.set('activels', this.activels)
-          newRoost.set('numPM', Number(this.numPM))
-          newRoost.set('scomposition', this.scomposition)
-          newRoost.set('dir_detail', this.dir_detail)
-          newRoost.set('habitat_detail', this.habitat_detail)
-          newRoost.set('history', this.history)
+          const Roost = Parse.Object.extend("MartinRoost")
+          if(this.currentRoost == undefined) {
+            this.currentRoost = new Roost()
+          }
+          this.currentRoost.set('title', this.title)
+          this.currentRoost.set('city', this.city)
+          this.currentRoost.set('state', this.state)
+          this.currentRoost.set('latitude', this.latitude)
+          this.currentRoost.set('longitude', this.longitude)
+          this.currentRoost.set('activels', this.activels)
+          this.currentRoost.set('numPM', Number(this.numPM))
+          this.currentRoost.set('scomposition', this.scomposition)
+          this.currentRoost.set('dir_detail', this.dir_detail)
+          this.currentRoost.set('habitat_detail', this.habitat_detail)
+          this.currentRoost.set('history', this.history)
           if(this.begin != undefined) {
-            newRoost.set('begin', new Date(this.begin))
+            this.currentRoost.set('begin', new Date(this.begin))
           }
           if(this.end != undefined) {
-            newRoost.set('end', new Date(this.end))
+            this.currentRoost.set('end', new Date(this.end))
           }
-          newRoost.set('threats', this.threats)
-          newRoost.set('opportunities', this.opportunities)
-          newRoost.set('comments', this.comments)
-          newRoost.set('privacy', Boolean(this.privacy))
-          newRoost.set('email', val)
-          newRoost.set('status', "Saved")
-          newRoost.save().then(()=>{
+          this.currentRoost.set('threats', this.threats)
+          this.currentRoost.set('opportunities', this.opportunities)
+          this.currentRoost.set('comments', this.comments)
+          this.currentRoost.set('privacy', Boolean(this.privacy))
+          this.currentRoost.set('email', val)
+          this.currentRoost.set('status', "Saved")
+          this.currentRoost.save().then(()=>{
 
           })
     })
@@ -143,27 +146,27 @@ export class MartinRoostPage {
       } else {
         this.storage.get('email').then((val)=>{
           const Roost = Parse.Object.extend("MartinRoost")
-          const newRoost = new Roost()
-          newRoost.set('title', this.title)
-          newRoost.set('city', this.city)
-          newRoost.set('state', this.state)
-          newRoost.set('latitude', this.latitude)
-          newRoost.set('longitude', this.longitude)
-          newRoost.set('activels', this.activels)
-          newRoost.set('numPM', Number(this.numPM))
-          newRoost.set('scomposition', this.scomposition)
-          newRoost.set('dir_detail', this.dir_detail)
-          newRoost.set('habitat_detail', this.habitat_detail)
-          newRoost.set('history', this.history)
-          newRoost.set('begin', new Date(this.begin))
-          newRoost.set('end', new Date(this.end))
-          newRoost.set('threats', this.threats)
-          newRoost.set('opportunities', this.opportunities)
-          newRoost.set('comments', this.comments)
-          newRoost.set('privacy', Boolean(this.privacy))
-          newRoost.set('email', val)
-          newRoost.set('status', "Pending")
-          newRoost.save().then(()=>{
+          const currentRoost = new Roost()
+          this.currentRoost.set('title', this.title)
+          this.currentRoost.set('city', this.city)
+          this.currentRoost.set('state', this.state)
+          this.currentRoost.set('latitude', this.latitude)
+          this.currentRoost.set('longitude', this.longitude)
+          this.currentRoost.set('activels', this.activels)
+          this.currentRoost.set('numPM', Number(this.numPM))
+          this.currentRoost.set('scomposition', this.scomposition)
+          this.currentRoost.set('dir_detail', this.dir_detail)
+          this.currentRoost.set('habitat_detail', this.habitat_detail)
+          this.currentRoost.set('history', this.history)
+          this.currentRoost.set('begin', new Date(this.begin))
+          this.currentRoost.set('end', new Date(this.end))
+          this.currentRoost.set('threats', this.threats)
+          this.currentRoost.set('opportunities', this.opportunities)
+          this.currentRoost.set('comments', this.comments)
+          this.currentRoost.set('privacy', Boolean(this.privacy))
+          this.currentRoost.set('email', val)
+          this.currentRoost.set('status', "Pending")
+          this.currentRoost.save().then(()=>{
             alert('Successfully Submitted')
             this.navCtrl.pop()
           }, error => {

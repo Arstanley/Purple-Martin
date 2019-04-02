@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { MartinRoostPage } from '../new-martin-roost/martin-roost';
 import Parse from 'parse'
 import {Storage} from '@ionic/storage'
+import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopmentpage';
 /**
  * Generated class for the MartinRoostListPage page.
  *
@@ -39,7 +40,6 @@ export class MartinRoostListPage {
     const Roost = Parse.Object.extend("MartinRoost");
     const query = new Parse.Query(Roost);
     query.equalTo("email", this.email);
-    query.equalTo("status", "Pending");
     const results = await query.find();
     this.roosts = []
     for (let i = 0; i < results.length; i++){
@@ -78,7 +78,9 @@ export class MartinRoostListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MartinRoostListPage');
   }
-  
+  selected(event) {
+    this.navCtrl.push(UnderdevelopmentpagePage)
+  }
   addRoost() {
     this.navCtrl.push(MartinRoostPage)
   }
