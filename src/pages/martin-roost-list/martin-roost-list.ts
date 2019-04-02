@@ -31,7 +31,6 @@ export class MartinRoostListPage {
     loading.present()
     await this.parse()
     loading.dismiss()
-    alert(this.roosts.length)
   }
   
   async parse() {
