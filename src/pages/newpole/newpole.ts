@@ -39,6 +39,7 @@ export class NewpolePage {
       newPole.save().then(()=>{
         alert("Successfully submitted!")
         this.updateColony()
+        this.navCtrl.pop()
       }, (error)=>{
         alert("Error" + error)
       })

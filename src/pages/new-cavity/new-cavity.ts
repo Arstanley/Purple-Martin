@@ -48,6 +48,7 @@ export class NewCavityPage {
         newCavity.save().then(()=>{
           alert("Successfully submitted!")
           this.updatePole()
+          this.navCtrl.pop()
         }, (error)=>{
           alert("Error" + error)
         })

@@ -31,12 +31,7 @@ export class NewNestCheckPage {
   }
 
   newCheck() {
-    if(this.date == undefined || 
-    (this.male_age == undefined && this.female_age == undefined) 
-    || this.egg == undefined || 
-    this.young == undefined || 
-    this.nest_stage == undefined
-    || this.action == undefined || 
+    if(this.date == undefined || this.action == undefined || 
     this.species == undefined) {
       const alertCT = this.alertCtrl.create({
         title: "Warning",
@@ -59,6 +54,7 @@ export class NewNestCheckPage {
       newCheck.set("cavity", this.cavity);
       newCheck.save().then(()=>{
         alert("Successfully submitted!")
+        this.navCtrl.pop()
       }, (error)=>{
         alert("Error" + error)
       })
