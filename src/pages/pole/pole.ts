@@ -108,7 +108,7 @@ export class PolePage {
   finalize() {
     this.alertCtrl.create({
       title: 'Confirm',
-      message: 'By Confirm to finalize your data, you can no longer edit any information in the specific colony, and your data would be updated to our datebase',
+      message: 'After clicking Confirm, you will no longer be able to edit any information, and your data will be marked as finalized in our database',
       buttons: [
         {
           text: 'Cancel',
