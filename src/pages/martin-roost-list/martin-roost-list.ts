@@ -39,6 +39,7 @@ export class MartinRoostListPage {
     const Roost = Parse.Object.extend("MartinRoost");
     const query = new Parse.Query(Roost);
     query.equalTo("email", this.email);
+    query.equalTo("status", "Pending");
     const results = await query.find();
     this.roosts = []
     for (let i = 0; i < results.length; i++){
