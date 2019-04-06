@@ -82,7 +82,6 @@ export class MartinRoostListPage {
           updatedAt: updateY.toString() + "/" + updateM.toString() + "/" + updateD.toString()
         })
       }
-      
       }
   }
   
@@ -92,9 +91,22 @@ export class MartinRoostListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MartinRoostListPage');
   }
-  selected(event) {
-    this.navCtrl.push(UnderdevelopmentpagePage)
+  
+  selected(event, roost) {
+    event.stopPropagation()
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    const Roost = Parse.Object.extend('MartinRoost');
+    const query = new Parse.Query(Roost);
+    query.get(roost.ID).then((martinroost) => {
+      this.navCtrl.push(MartinRoostPage, {
+        roost: martinroost,
+      })
+    }, (error) => {
+      alert(error + "Cannot retrieve object");
+    })
   }
+
   addRoost() {
     this.navCtrl.push(MartinRoostPage)
   }

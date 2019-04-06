@@ -21,7 +21,7 @@
 <ion-content padding>
   <h1>Saved</h1>
   <ion-list>
-    <button id = "info" ion-item *ngFor="let roost of saved_Roosts" (click)="selected($event, watch)">
+    <button id = "info" ion-item *ngFor="let roost of saved_Roosts" (click)="selected($event, roost)">
       <font size="3">Roost Title: {{roost.title}}</font><br>
       <font color="grey" size = "2" style="font-family:'serif'">
       Begin: {{roost.begin}} <br>
@@ -36,7 +36,7 @@
   </ion-list>
   <h1>Submitted</h1>
   <ion-list>
-      <button id = "info" ion-item *ngFor="let roost of submitted_Roosts" (click)="selected($event, watch)">
+      <button id = "info" ion-item *ngFor="let roost of submitted_Roosts">
           <font size="3">Roost Title: {{roost.title}}</font><br>
           <font color="grey" size = "2" style="font-family:'serif'">
           Begin: {{roost.begin}} <br>
