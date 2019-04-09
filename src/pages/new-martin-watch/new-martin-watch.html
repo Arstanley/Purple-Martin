@@ -15,7 +15,7 @@
 <ion-content padding>
   <div center margin-bottom text-center> 
       <ion-item>
-          <ion-label>Choose from previous colonies</ion-label>
+          <ion-label floating>Choose from previous colonies</ion-label>
           <ion-select (ionChange)="logChosen()" [(ngModel)] = "colony">
             <ion-option *ngFor="let colony of colonies">{{colony.get("Name")}}</ion-option>
           </ion-select>

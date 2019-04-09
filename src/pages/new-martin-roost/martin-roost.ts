@@ -2,6 +2,8 @@ import { Component, ViewChild  } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import {Storage} from '@ionic/storage'
 import Parse from 'parse'
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { t } from '@angular/core/src/render3';
 /**
  * Generated class for the MartinRoostPage page.
  *
@@ -36,6 +38,7 @@ export class MartinRoostPage {
   comments: any
   privacy: boolean
   roost: any
+  showAlertMessage = true;
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public alertCtrl: AlertController) {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
@@ -90,7 +93,46 @@ export class MartinRoostPage {
     }
   }
 
+  ionViewCanLeave() {
+    if(this.showAlertMessage) {
+      const alert = this.alertCtrl.create({
+        title: 'Warning',
+        message: 'Do you want to save your progress so far?',
+        buttons: [
+          {
+            text: 'Save',
+            cssClass: 'secondary',
+            handler: () => {
+              this.save()
+              this.exit()
+            }
+          }, {
+            text: 'No',
+            cssClass: 'danger',
+            handler: () => {
+              this.navCtrl.pop()
+              this.exit()
+            }
+          }
+        ] 
+      }).present()
+      return false
+    }
+  }
+
+  private exit() {
+    this.showAlertMessage = false;
+    this.navCtrl.pop()
+  }
+
   ionViewWillLeave() {
+    
+  }
+  async save() {
+    const loading = this.loadingCtrl.create({
+      spinner: "dots",
+    })
+    loading.present()
     if(
       this.title != undefined ||
       this.city != undefined ||
@@ -140,13 +182,11 @@ export class MartinRoostPage {
           this.roost.set('email', val)
           this.roost.set('status', "Saved")
           this.roost.save().then(()=>{
-
+            loading.dismiss()
           })
     })
       }
-    
   }
-
   submit() {
     if(this.title == undefined || 
       this.city == undefined || 

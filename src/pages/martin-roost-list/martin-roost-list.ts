@@ -86,8 +86,9 @@ export class MartinRoostListPage {
   }
   
   ionViewWillEnter(){
-    this.parse()
+    this.load()
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MartinRoostListPage');
   }
