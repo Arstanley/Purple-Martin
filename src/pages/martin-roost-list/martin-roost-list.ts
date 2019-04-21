@@ -62,7 +62,7 @@ export class MartinRoostListPage {
       var endY = endDate.getFullYear()
 
       if(object.get('status') == 'Saved') {
-        this.saved_Roosts.push(
+      this.saved_Roosts.push(
           {
             title: object.get("title"),
             begin: startY.toString() + "/" + startM.toString() + "/" + startD.toString(),
@@ -87,6 +87,17 @@ export class MartinRoostListPage {
   
   ionViewWillEnter(){
     this.load()
+  }
+
+  ionViewDidEnter() {
+    for (let i = 0; i < this.saved_Roosts.length; ++i) {
+      if(this.saved_Roosts[i].begin == 'NaN/NaN/NaN') {
+        this.saved_Roosts[i].begin = 'NOT SET'
+      }
+      if(this.saved_Roosts[i].end == 'NaN/NaN/NaN') {
+        this.saved_Roosts[i].end = 'NOT SET'
+      }
+    }
   }
 
   ionViewDidLoad() {
