@@ -19,8 +19,8 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <button id = "info" ion-item *ngFor="let pole of poles" (click)="selected($event, pole)">
+  <ion-list id = 'info'>
+    <button ion-item *ngFor="let pole of poles" (click)="selected($event, pole)" [innerHTML] = "INFO">
       <font size="2">
         Name: {{pole.name}}<br>
         Number of Cavities : {{pole.num_cavity}}<br>

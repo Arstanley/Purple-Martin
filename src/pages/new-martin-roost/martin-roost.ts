@@ -2,6 +2,8 @@ import { Component, ViewChild  } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import {Storage} from '@ionic/storage'
 import Parse from 'parse'
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { t } from '@angular/core/src/render3';
 /**
  * Generated class for the MartinRoostPage page.
  *
@@ -35,10 +37,12 @@ export class MartinRoostPage {
   opportunities: any
   comments: any
   privacy: boolean
-  currentRoost: any
+  roost: any
+  showAlertMessage = true;
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public alertCtrl: AlertController) {
     Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
     Parse.serverURL = 'https://parseapi.back4app.com/';
+    this.roost = this.navParams.get('roost') 
     this.storage.get('email').then((val)=>{
       this.email = val
       this.load()
@@ -67,71 +71,122 @@ export class MartinRoostPage {
   }
 
   async constructPreviousData() {
-    const Roost = Parse.Object.extend("MartinRoost")
-    const query = new Parse.Query(Roost)
-    query.equalTo("email", this.email);
-    query.equalTo("status", "Saved");
-    const res = await query.find()
-    if(res.length != 0) {
-      this.currentRoost = res[0]
-      this.title = res[0].get('title')
-      this.city = res[0].get('city')
-      this.state = res[0].get('state')
-      this.latitude = res[0].get('latitude')
-      this.longitude = res[0].get('longitude')
-      this.activels = res[0].get('activels')
-      this.numPM = res[0].get('numPM')
-      this.scomposition = res[0].get('scomposition')
-      this.accessibility = res[0].get('accessibility')
-      this.dir_detail = res[0].get('dir_detail')
-      this.habitat_detail = res[0].get('dir_detail')
-      this.history = res[0].get('history')
-      this.begin = res[0].get('begin')
-      this.end = res[0].get('end')
-      this.threats = res[0].get('threats')
-      this.opportunities = res[0].get('opportunities')
-      this.comments = res[0].get('comments')
-      this.privacy = res[0].get('privacy')
+    if(this.roost != undefined) {
+      this.title = this.roost.get('title')
+      this.city = this.roost.get('city')
+      this.state = this.roost.get('state')
+      this.latitude = this.roost.get('latitude')
+      this.longitude = this.roost.get('longitude')
+      this.activels = this.roost.get('activels')
+      this.numPM = this.roost.get('numPM')
+      this.scomposition = this.roost.get('scomposition')
+      this.accessibility = this.roost.get('accessibility')
+      this.dir_detail = this.roost.get('dir_detail')
+      this.habitat_detail = this.roost.get('dir_detail')
+      this.history = this.roost.get('history')
+      this.begin = this.roost.get('begin')
+      this.end = this.roost.get('end')
+      this.threats = this.roost.get('threats')
+      this.opportunities = this.roost.get('opportunities')
+      this.comments = this.roost.get('comments')
+      this.privacy = this.roost.get('privacy')
     }
   }
 
-  ionViewWillLeave() {
-    if(this.currentRoost.get('status') != 'Pending') {
-    this.storage.get('email').then((val)=>{
-          const Roost = Parse.Object.extend("MartinRoost")
-          if(this.currentRoost == undefined) {
-            this.currentRoost = new Roost()
+  ionViewCanLeave() {
+    if(this.showAlertMessage) {
+      const alert = this.alertCtrl.create({
+        title: 'Warning',
+        message: 'Do you want to save your progress so far?',
+        buttons: [
+          {
+            text: 'Save',
+            cssClass: 'secondary',
+            handler: () => {
+              this.save()
+              this.exit()
+            }
+          }, {
+            text: 'No',
+            cssClass: 'danger',
+            handler: () => {
+              this.navCtrl.pop()
+              this.exit()
+            }
           }
-          this.currentRoost.set('title', this.title)
-          this.currentRoost.set('city', this.city)
-          this.currentRoost.set('state', this.state)
-          this.currentRoost.set('latitude', this.latitude)
-          this.currentRoost.set('longitude', this.longitude)
-          this.currentRoost.set('activels', this.activels)
-          this.currentRoost.set('numPM', Number(this.numPM))
-          this.currentRoost.set('scomposition', this.scomposition)
-          this.currentRoost.set('dir_detail', this.dir_detail)
-          this.currentRoost.set('habitat_detail', this.habitat_detail)
-          this.currentRoost.set('history', this.history)
+        ] 
+      }).present()
+      return false
+    }
+  }
+
+  private exit() {
+    this.showAlertMessage = false;
+    this.navCtrl.pop()
+  }
+
+  ionViewWillLeave() {
+    
+  }
+  async save() {
+    const loading = this.loadingCtrl.create({
+      spinner: "dots",
+    })
+    loading.present()
+    if(
+      this.title != undefined ||
+      this.city != undefined ||
+      this.state != undefined ||
+      this.latitude != undefined ||
+      this.longitude != undefined ||
+      this.activels != undefined ||
+      this.numPM != undefined ||
+      this.scomposition != undefined ||
+      this.accessibility != undefined ||
+      this.dir_detail != undefined ||
+      this.habitat_detail != undefined ||
+      this.history != undefined ||
+      this.begin != undefined ||
+      this.end != undefined ||
+      this.threats != undefined ||
+      this.opportunities != undefined ||
+      this.comments != undefined ||
+      this.privacy != undefined
+      ) {
+        this.storage.get('email').then((val)=>{
+          const Roost = Parse.Object.extend("MartinRoost")
+          if(this.roost == undefined) {
+            this.roost = new Roost()
+          }
+          this.roost.set('title', this.title)
+          this.roost.set('city', this.city)
+          this.roost.set('state', this.state)
+          this.roost.set('latitude', this.latitude)
+          this.roost.set('longitude', this.longitude)
+          this.roost.set('activels', this.activels)
+          this.roost.set('numPM', Number(this.numPM))
+          this.roost.set('scomposition', this.scomposition)
+          this.roost.set('dir_detail', this.dir_detail)
+          this.roost.set('habitat_detail', this.habitat_detail)
+          this.roost.set('history', this.history)
           if(this.begin != undefined) {
-            this.currentRoost.set('begin', new Date(this.begin))
+            this.roost.set('begin', new Date(this.begin))
           }
           if(this.end != undefined) {
-            this.currentRoost.set('end', new Date(this.end))
+            this.roost.set('end', new Date(this.end))
           }
-          this.currentRoost.set('threats', this.threats)
-          this.currentRoost.set('opportunities', this.opportunities)
-          this.currentRoost.set('comments', this.comments)
-          this.currentRoost.set('privacy', Boolean(this.privacy))
-          this.currentRoost.set('email', val)
-          this.currentRoost.set('status', "Saved")
-          this.currentRoost.save().then(()=>{
-
+          this.roost.set('threats', this.threats)
+          this.roost.set('opportunities', this.opportunities)
+          this.roost.set('comments', this.comments)
+          this.roost.set('privacy', Boolean(this.privacy))
+          this.roost.set('email', val)
+          this.roost.set('status', "Saved")
+          this.roost.save().then(()=>{
+            loading.dismiss()
           })
     })
+      }
   }
-  }
-
   submit() {
     if(this.title == undefined || 
       this.city == undefined || 

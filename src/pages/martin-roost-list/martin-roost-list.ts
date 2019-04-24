@@ -18,7 +18,8 @@ import { UnderdevelopmentpagePage } from '../underdevelopmentpage/underdevelopme
 })
 export class MartinRoostListPage {
   email: string;
-  roosts: Array<{title: string, begin: string, end: string, updatedAt:string, ID: string, status: string}>;
+  saved_Roosts: Array<{title: string, begin: string, end: string, updatedAt:string, ID: string, status: string}>;
+  submitted_Roosts: Array<{title: string, begin: string, end: string, updatedAt:string, ID: string, status: string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public loadingCtrl: LoadingController) {
     storage.get('email').then((val)=>{
       this.email = val;
@@ -41,7 +42,8 @@ export class MartinRoostListPage {
     const query = new Parse.Query(Roost);
     query.equalTo("email", this.email);
     const results = await query.find();
-    this.roosts = []
+    this.saved_Roosts = []
+    this.submitted_Roosts = []
     for (let i = 0; i < results.length; i++){
       var object = results[i];
       var updateDate = new Date(object.updatedAt)
@@ -59,28 +61,64 @@ export class MartinRoostListPage {
       var endM = endDate.getMonth()
       var endY = endDate.getFullYear()
 
-      this.roosts.push(
-        {
+      if(object.get('status') == 'Saved') {
+      this.saved_Roosts.push(
+          {
+            title: object.get("title"),
+            begin: startY.toString() + "/" + startM.toString() + "/" + startD.toString(),
+            end: endY.toString() + "/" + endM.toString() + "/" + endD.toString(),
+            ID: object.id,
+            status: object.get('status'),
+            updatedAt: updateY.toString() + "/" + updateM.toString() + "/" + updateD.toString()
+          }
+        )
+      } else {
+        this.submitted_Roosts.push({
           title: object.get("title"),
           begin: startY.toString() + "/" + startM.toString() + "/" + startD.toString(),
           end: endY.toString() + "/" + endM.toString() + "/" + endD.toString(),
           ID: object.id,
           status: object.get('status'),
           updatedAt: updateY.toString() + "/" + updateM.toString() + "/" + updateD.toString()
-        }
-      )
+        })
+      }
       }
   }
   
   ionViewWillEnter(){
-    this.parse()
+    this.load()
   }
+
+  ionViewDidEnter() {
+    for (let i = 0; i < this.saved_Roosts.length; ++i) {
+      if(this.saved_Roosts[i].begin == 'NaN/NaN/NaN') {
+        this.saved_Roosts[i].begin = 'NOT SET'
+      }
+      if(this.saved_Roosts[i].end == 'NaN/NaN/NaN') {
+        this.saved_Roosts[i].end = 'NOT SET'
+      }
+    }
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MartinRoostListPage');
   }
-  selected(event) {
-    this.navCtrl.push(UnderdevelopmentpagePage)
+  
+  selected(event, roost) {
+    event.stopPropagation()
+    Parse.initialize("k49m29iKFs68BmiiMtvIF5u7h1CJsZC6TivIWvVs", "OOCasTyRmDC4hYfDzc9lzrIa3o2eSFphRM1c5vhh");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    const Roost = Parse.Object.extend('MartinRoost');
+    const query = new Parse.Query(Roost);
+    query.get(roost.ID).then((martinroost) => {
+      this.navCtrl.push(MartinRoostPage, {
+        roost: martinroost,
+      })
+    }, (error) => {
+      alert(error + "Cannot retrieve object");
+    })
   }
+
   addRoost() {
     this.navCtrl.push(MartinRoostPage)
   }
